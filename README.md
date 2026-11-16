@@ -14,7 +14,7 @@ The initial course goes from first syntax to advanced language features and boun
 
 ## Install
 
-Download **PyDojo-v0.1.2-macos-arm64.zip** from the [latest release](https://github.com/bujosa/pydojo/releases/latest), extract it and move PyDojo.app to `~/Applications`. The verified Keiko catalog integration is being released with Keiko 0.3.7.
+Download **PyDojo-v0.1.3-macos-arm64.zip** from the [latest release](https://github.com/bujosa/pydojo/releases/latest), extract it and move PyDojo.app to `~/Applications`. The verified Keiko catalog integration is being released with Keiko 0.3.7.
 
 Python 3.13.18 and Ruff 0.12.5 are included. No terminal setup or account is needed. Initial platform: macOS Apple Silicon; the app is ad-hoc signed and not notarized. macOS may require first-launch approval in System Settings → Privacy & Security.
 

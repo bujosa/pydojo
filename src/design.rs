@@ -186,7 +186,10 @@ pub fn masthead(
     ui.scope_builder(egui::UiBuilder::new().max_rect(text_rect), |ui| {
         eyebrow(ui, &section.to_uppercase(), ACCENT);
         ui.add_space(8.0);
-        ui.label(RichText::new(title).font(display(if compact { 24.0 } else { 29.0 })));
+        ui.add(
+            egui::Label::new(RichText::new(title).font(display(if compact { 24.0 } else { 29.0 })))
+                .wrap(),
+        );
         ui.add_space(9.0);
         ui.label(
             RichText::new(format!("LESSON {:02}  /  Learn by building", index + 1))
