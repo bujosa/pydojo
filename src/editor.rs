@@ -20,7 +20,7 @@ const NAMES: &[&str] = &[
     "constructor",
     "escape",
 ];
-const WELL: Color32 = Color32::from_rgb(12, 19, 29);
+const WELL: Color32 = design::EDITOR;
 const GUTTER: Color32 = Color32::from_rgb(123, 142, 162);
 fn color(index: usize) -> Color32 {
     match NAMES.get(index).copied().unwrap_or("") {

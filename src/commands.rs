@@ -138,7 +138,7 @@ impl Palette {
                                 egui::Button::new(RichText::new(command.name).size(13.0))
                                     .shortcut_text(command.shortcut)
                                     .fill(if self.selected == index {
-                                        egui::Color32::from_rgb(30, 54, 80)
+                                        design::SELECTED
                                     } else {
                                         egui::Color32::TRANSPARENT
                                     })

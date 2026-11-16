@@ -21,3 +21,9 @@ No automated presentation tests were added. Functional engine tests cover breakp
 The app is ad-hoc signed, not notarized. Initial platform: Apple Silicon macOS. It includes pinned CPython 3.13.18 and Ruff 0.12.5 with upstream notices. The app and course use trusted local code with educational guards; CPython audit hooks are not an adversarial security sandbox. No terminal, external package installation, LSP autocomplete, static type checker or multi-file project workspace is shipped.
 
 This initial course teaches fundamentals through advanced language features and focused engineering projects. Larger professional projects and service integration remain on ROADMAP.md. Public release/catalog integration and Developer ID notarization are separate work.
+
+## Visual refinement · 0.1.1
+
+The follow-up design pass consolidates charcoal surfaces, mint selection, shared editor/console colors and consistent hover/active states. Reading allocates less width to definitions and more to code/reasoning. Compact reading folds the glossary; examples have an explicit filename and copy control. The outcome area provides a direct practice action. Stage tabs pair selected state with an underline, and Check is the emphasized workbench action. The guided task title avoids repeating its stage label.
+
+Native review covered 1280x860 and 820x700: reading, glossary expansion/collapse, code copy control, wrong/correct explained predictions, direct entry to practice, focus mode, failed starter feedback, Format and a passed guided exercise. A final pass checks the active tab's accessibility state and the installed app. The required local gates are rerun; no automated presentation tests are added. Curriculum, execution and progress contracts are unchanged by this visual pass.

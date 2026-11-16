@@ -484,7 +484,7 @@ impl App {
                                     .size(12.5),
                                 )
                                 .fill(if selected {
-                                    Color32::from_rgb(30, 54, 80)
+                                    design::SELECTED
                                 } else {
                                     Color32::TRANSPARENT
                                 })
@@ -512,7 +512,7 @@ impl App {
                     ui.add_space(16.0);
                     ui.label("No lessons found");
                     ui.label(
-                        RichText::new("Try a topic, such as generics or arrays.")
+                        RichText::new("Try a topic, such as functions, CSV or async.")
                             .size(12.0)
                             .color(MUTED),
                     );
@@ -638,7 +638,7 @@ impl App {
         egui::Panel::bottom("footer").show(ui, |ui| {
             ui.horizontal(|ui| {
                 ui.label(
-                    RichText::new("KEIKO  /  Daily practice for builders")
+                    RichText::new("KEIKO  /  PYTHON WORKSPACE")
                         .monospace()
                         .size(11.5)
                         .color(MUTED),
@@ -698,13 +698,7 @@ impl App {
                                 ),
                             ),
                         ] {
-                            if ui
-                                .selectable_label(
-                                    self.stage == stage,
-                                    RichText::new(label).size(12.0),
-                                )
-                                .clicked()
-                            {
+                            if design::tab(ui, label, self.stage == stage).clicked() {
                                 self.set_stage(stage);
                             }
                         }
@@ -724,7 +718,14 @@ impl App {
                     });
                 });
             if self.stage == 0 {
-                design::masthead(ui, &base.section, &base.title, self.selected, true, false);
+                design::masthead(
+                    ui,
+                    &base.section,
+                    &base.title,
+                    self.selected,
+                    ui.available_width() < 760.0,
+                    false,
+                );
                 ui.add_space(12.0);
                 if let Some(action) = self.reader.show(ui, &guide, &base, &self.lessons) {
                     match action {
@@ -832,7 +833,7 @@ impl App {
                     ui.horizontal(|ui|{ui.label(RichText::new("Worked solution").font(design::display(22.0)));ui.with_layout(egui::Layout::right_to_left(egui::Align::Center),|ui|{if ui.button("Close").clicked(){close=true;}});});
                     ui.add_space(6.0);ui.label(RichText::new(&lesson.title).size(13.0).color(MUTED));ui.add_space(14.0);
                     ui.label("Read the approach, then write your own answer. Viewing a solution does not pass the lab.");ui.add_space(18.0);
-                    egui::Frame::new().fill(Color32::from_rgb(12,19,29)).corner_radius(7.0).inner_margin(16.0).show(ui,|ui|{
+                    egui::Frame::new().fill(design::EDITOR).corner_radius(7.0).inner_margin(16.0).show(ui,|ui|{
                         ui.set_min_width(ui.available_width());egui::ScrollArea::both().max_height((ctx.content_rect().height()*0.5).max(140.0)).show(ui,|ui|self.reference_editor.reference(ui,&lesson.solution));
                     });
                     ui.add_space(16.0);if ui.button(if self.solution_copied {"Copied"}else{"Copy code"}).clicked(){ui.ctx().copy_text(lesson.solution.clone());self.solution_copied=true;}
@@ -948,13 +949,16 @@ fn style(ctx: &egui::Context) {
     let mut visuals = egui::Visuals::dark();
     visuals.panel_fill = design::BG;
     visuals.override_text_color = Some(design::TEXT);
-    visuals.selection.bg_fill = Color32::from_rgb(35, 85, 68);
+    visuals.selection.bg_fill = design::SELECTED;
+    visuals.selection.stroke = egui::Stroke::new(1.0, design::ACCENT);
     visuals.hyperlink_color = BLUE;
-    visuals.extreme_bg_color = Color32::from_rgb(10, 17, 25);
+    visuals.extreme_bg_color = design::EDITOR;
     visuals.window_fill = design::PANEL;
     visuals.widgets.inactive.weak_bg_fill = design::PANEL;
     visuals.widgets.inactive.bg_stroke = egui::Stroke::new(1.0, design::BORDER);
-    visuals.widgets.hovered.weak_bg_fill = Color32::from_rgb(32, 64, 58);
+    visuals.widgets.hovered.weak_bg_fill = design::HOVER;
+    visuals.widgets.active.weak_bg_fill = design::SELECTED;
+    visuals.widgets.noninteractive.bg_stroke = egui::Stroke::new(1.0, design::BORDER);
     for w in [
         &mut visuals.widgets.inactive,
         &mut visuals.widgets.hovered,

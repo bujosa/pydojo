@@ -501,7 +501,7 @@ impl Workbench {
         max_height: f32,
     ) {
         egui::Panel::bottom("ide-output-modern").resizable(false).exact_size(self.console_height)
-            .frame(egui::Frame::new().fill(egui::Color32::from_rgb(12,19,29)).inner_margin(egui::Margin::symmetric(10,6)))
+            .frame(egui::Frame::new().fill(design::EDITOR).inner_margin(egui::Margin::symmetric(10,6)))
             .show(ui,|ui|{
                 ui.horizontal(|ui|{
                     ui.selectable_value(&mut self.panel,0,RichText::new("Console").size(12.0));
@@ -572,7 +572,7 @@ impl Workbench {
         let mut reset = false;
         egui::ScrollArea::vertical().id_salt("task-copy").show(ui,|ui|{
             design::eyebrow(ui,if self.guided {"GUIDED PRACTICE"}else{"INDEPENDENT LAB"},design::ACCENT);ui.add_space(10.0);
-            ui.label(RichText::new(&lesson.title).font(design::display(16.0)));ui.add_space(12.0);
+            ui.label(RichText::new(lesson.title.strip_prefix("Guided practice: ").unwrap_or(&lesson.title)).font(design::display(16.0)));ui.add_space(12.0);
             ui.label(RichText::new(&lesson.task).size(13.5).line_height(Some(21.0)));ui.add_space(14.0);
             egui::CollapsingHeader::new("Need a hint?").show(ui,|ui|{ui.label(RichText::new(&lesson.hint).size(13.0));});
             egui::CollapsingHeader::new(if self.guided {"Review the reasoning"}else{"Full rules and context"}).default_open(lesson.id.starts_with("project-")).show(ui,|ui|{for paragraph in lesson.concept.split("\n\n"){ui.label(RichText::new(paragraph).size(12.5).line_height(Some(20.0)));ui.add_space(8.0);}});
@@ -647,8 +647,8 @@ impl Workbench {
                     if ui
                         .add_enabled(
                             !active && !checking && !context.formatting,
-                            egui::Button::new(RichText::new("▶ Run").color(design::INK))
-                                .fill(GREEN),
+                            egui::Button::new(RichText::new("▶ Run").color(design::ACCENT))
+                                .fill(design::PANEL),
                         )
                         .on_hover_text("Run playground.py · Cmd+R")
                         .clicked()
@@ -704,13 +704,17 @@ impl Workbench {
                     if ui
                         .add_enabled(
                             !active && !checking && !context.formatting,
-                            egui::Button::new(if checking {
-                                "Checking…"
-                            } else if self.guided {
-                                "Check practice"
-                            } else {
-                                "Check lab"
-                            }),
+                            egui::Button::new(
+                                RichText::new(if checking {
+                                    "Checking…"
+                                } else if self.guided {
+                                    "Check practice"
+                                } else {
+                                    "Check lab"
+                                })
+                                .color(design::INK),
+                            )
+                            .fill(design::ACCENT),
                         )
                         .on_hover_text("Validate the lesson contract · Cmd+Enter")
                         .clicked()
@@ -906,11 +910,7 @@ impl Workbench {
             });
         }
         egui::CentralPanel::default()
-            .frame(
-                egui::Frame::new()
-                    .fill(Color32::from_rgb(12, 19, 29))
-                    .inner_margin(0.0),
-            )
+            .frame(egui::Frame::new().fill(design::EDITOR).inner_margin(0.0))
             .show(ui, |ui| {
                 ui.horizontal(|ui| {
                     for file in ["answer.py", "playground.py"] {

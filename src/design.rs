@@ -1,13 +1,16 @@
-//! PyDojo's original visual language: forest ink, warm paper, and an original loop monogram.
+//! PyDojo's original visual language: charcoal surfaces, mint accents and original contour artwork.
 use egui::{Color32, FontId, RichText, Stroke, Vec2};
-pub const BG: Color32 = Color32::from_rgb(12, 23, 25);
-pub const PANEL: Color32 = Color32::from_rgb(17, 34, 36);
-pub const BORDER: Color32 = Color32::from_rgb(44, 65, 67);
+pub const BG: Color32 = Color32::from_rgb(17, 21, 25);
+pub const PANEL: Color32 = Color32::from_rgb(24, 30, 34);
+pub const BORDER: Color32 = Color32::from_rgb(46, 56, 61);
 pub const PAPER: Color32 = Color32::from_rgb(232, 226, 212);
 pub const INK: Color32 = Color32::from_rgb(36, 45, 60);
 pub const BLUE_INK: Color32 = Color32::from_rgb(29, 91, 79);
 pub const ACCENT: Color32 = Color32::from_rgb(142, 219, 184);
-pub const MUTED: Color32 = Color32::from_rgb(163, 180, 199);
+pub const MUTED: Color32 = Color32::from_rgb(158, 174, 180);
+pub const EDITOR: Color32 = Color32::from_rgb(13, 18, 23);
+pub const SELECTED: Color32 = Color32::from_rgb(30, 58, 49);
+pub const HOVER: Color32 = Color32::from_rgb(38, 48, 51);
 pub const TEXT: Color32 = Color32::from_rgb(233, 237, 241);
 
 pub fn display(size: f32) -> FontId {
@@ -123,51 +126,89 @@ pub fn masthead(
 ) {
     let width = ui.available_width();
     let short = compact && practice;
-    let height = if short { 82.0 } else { 108.0 };
+    let height = if short {
+        78.0
+    } else if compact {
+        96.0
+    } else {
+        104.0
+    };
     let (banner, _) = ui.allocate_exact_size(egui::vec2(width, height), egui::Sense::hover());
-    ui.painter().rect_filled(banner, 10.0, PANEL);
-    // Original contour drawing: code-native artwork stays sharp at every window scale.
-    let painter = ui.painter().with_clip_rect(banner.shrink(4.0));
-    let origin = egui::pos2(banner.right() - width.min(300.0) * 0.5, banner.center().y);
-    if width > 480.0 {
-        for ring in 0..9 {
-            let radius = 18.0 + ring as f32 * 8.0;
-            let points = (0..81)
+    ui.painter().rect_filled(banner, 8.0, PANEL);
+    let art_width = if width > 780.0 { 230.0 } else { 0.0 };
+    if art_width > 0.0 {
+        let bounds = egui::Rect::from_min_max(
+            egui::pos2(banner.right() - art_width, banner.top()),
+            banner.right_bottom(),
+        );
+        let painter = ui.painter().with_clip_rect(bounds.shrink(3.0));
+        let center = bounds.center() + egui::vec2(12.0, 0.0);
+        for ring in 0..8 {
+            let radius = 18.0 + ring as f32 * 7.0;
+            let points = (0..65)
                 .map(|step| {
-                    let angle = step as f32 * std::f32::consts::TAU / 80.0;
-                    origin + egui::vec2(angle.cos() * radius * 1.6, angle.sin() * radius * 0.62)
+                    let angle = step as f32 * std::f32::consts::TAU / 64.0;
+                    center + egui::vec2(angle.cos() * radius * 1.8, angle.sin() * radius * 0.64)
                 })
                 .collect();
             painter.add(egui::Shape::line(
                 points,
-                Stroke::new(1.0, Color32::from_rgba_unmultiplied(142, 219, 184, 70)),
+                Stroke::new(1.0, Color32::from_rgba_unmultiplied(142, 219, 184, 45)),
             ));
         }
-        painter.circle_filled(origin, 10.0, Color32::from_rgb(231, 192, 112));
-        painter.line_segment(
-            [
-                origin + egui::vec2(-30.0, 0.0),
-                origin + egui::vec2(30.0, 0.0),
-            ],
-            Stroke::new(1.0, PANEL),
+        painter.circle_filled(center, 7.0, Color32::from_rgb(231, 192, 112));
+        painter.circle_stroke(
+            center,
+            11.0,
+            Stroke::new(1.0, Color32::from_rgb(98, 92, 69)),
         );
     }
     let text_rect = egui::Rect::from_min_size(
         banner.min + egui::vec2(20.0, 12.0),
-        egui::vec2(width * 0.60 - 26.0, height - 20.0),
+        egui::vec2(width - art_width - 40.0, height - 20.0),
     );
     ui.scope_builder(egui::UiBuilder::new().max_rect(text_rect), |ui| {
         eyebrow(ui, &section.to_uppercase(), ACCENT);
         ui.add_space(5.0);
-        ui.label(RichText::new(title).font(display(if compact { 20.0 } else { 26.0 })));
+        ui.label(RichText::new(title).font(display(if compact { 22.0 } else { 28.0 })));
         if !short {
             ui.add_space(5.0);
             ui.label(
-                RichText::new(format!("LAB {:02}  /  Learn by building", index + 1))
+                RichText::new(format!("LESSON {:02}  /  Learn by building", index + 1))
                     .monospace()
                     .size(11.5)
                     .color(MUTED),
             );
         }
     });
+}
+
+/// A navigation tab with an explicit active underline; never a completion indicator.
+pub fn tab(ui: &mut egui::Ui, label: impl Into<String>, selected: bool) -> egui::Response {
+    let response = ui.add(
+        egui::Button::new(RichText::new(label.into()).size(12.5).color(if selected {
+            TEXT
+        } else {
+            MUTED
+        }))
+        .selected(selected)
+        .fill(if selected {
+            SELECTED
+        } else {
+            Color32::TRANSPARENT
+        })
+        .stroke(Stroke::NONE)
+        .corner_radius(4.0)
+        .min_size(egui::vec2(0.0, 32.0)),
+    );
+    if selected {
+        ui.painter().line_segment(
+            [
+                response.rect.left_bottom() + egui::vec2(7.0, 0.0),
+                response.rect.right_bottom() - egui::vec2(7.0, 0.0),
+            ],
+            Stroke::new(2.0, ACCENT),
+        );
+    }
+    response
 }
