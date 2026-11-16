@@ -4,4 +4,4 @@ The first release provides 43 original readings, 43 guided exercises and 43 inde
 
 Further professional tracks should add larger multi-file projects, a real test-runner workflow, packaging/virtual environments, static type checking, web APIs, databases, profiling and performance, cancellation/structured concurrency, deployment and service integration. Those features are not represented by decorative buttons or implied by the first course.
 
-A public source/release and verified Keiko catalog rollout follow local validation. Developer ID signing/notarization, Intel macOS and other operating systems need their own release work.
+Public source and the verified 0.1.2 release are available on GitHub. Keiko 0.3.7 adds the catalog entry after anonymous public install/update/uninstall/restore verification. Developer ID signing/notarization, Intel macOS and other operating systems need their own release work.

@@ -20,7 +20,7 @@ No automated presentation tests were added. Functional engine tests cover breakp
 
 The app is ad-hoc signed, not notarized. Initial platform: Apple Silicon macOS. It includes pinned CPython 3.13.18 and Ruff 0.12.5 with upstream notices. The app and course use trusted local code with educational guards; CPython audit hooks are not an adversarial security sandbox. No terminal, external package installation, LSP autocomplete, static type checker or multi-file project workspace is shipped.
 
-This initial course teaches fundamentals through advanced language features and focused engineering projects. Larger professional projects and service integration remain on ROADMAP.md. Public release/catalog integration and Developer ID notarization are separate work.
+This initial course teaches fundamentals through advanced language features and focused engineering projects. Larger professional projects and service integration remain on ROADMAP.md. The initial local-only scope above is historical. Publication status is recorded below; Developer ID notarization remains separate work.
 
 ## Visual refinement · 0.1.1
 
@@ -35,3 +35,9 @@ The generic contour decoration is replaced by a collection of 43 original transp
 The masthead contains the full image with a separate text region in both wide and compact layouts. Native image alt text uses the educational caption. Decode/thumbnail preparation happens off the UI thread, completed work is associated with its exact lesson ID, stale navigation results are dropped, and the GPU cache retains at most four textures. The --verify-art gate checks complete unique lesson coverage, actual PNG decoding, sufficient dimensions and real transparency; source-file SHA-256 hashes are recorded with the prompts. This checks asset delivery rather than generating presentation tests.
 
 Native artwork review covered 1280x860 and 820x700. Observed artwork changes for values, arithmetic, text, booleans, dictionaries, CSV, async and the final import project. The review also revisited the first lesson after more than four different images to exercise cache eviction and confirmed matching accessible image captions. A layout correction keeps the complete image and caption inside the masthead without moving the following reader section upward. The full content/runtime gate and final Clippy/build pass are recorded under target/art-review/validation. The existing learner profile is preserved during the local update.
+
+## Public distribution · 0.1.2
+
+The public repository is https://github.com/bujosa/pydojo. PR #1 was merged after the required local gates and the secret scan passed. Release v0.1.2 is built from merged main and contains the signed ZIP and SHA256SUMS.txt. Keiko's anonymous live integration verifies the public download checksum, signature and bundle identity, repeated replacement, rejected invalid asset, uninstall, restore and retained test data in isolated folders. The four-test suite includes PyDojo, TypeDojo, PodDojo and launcher self-update; all four passed during the catalog rollout. No ordinary learner data was used.
+
+These checks do not add notarization, Intel support or an adversarial execution sandbox. Manual native review and automated behavioral checks retain the scopes documented above.

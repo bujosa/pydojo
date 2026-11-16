@@ -12,6 +12,12 @@ A native Python learning workspace in the Keiko family. Read an explained exampl
 
 The initial course goes from first syntax to advanced language features and bounded engineering exercises. It is a foundation for professional practice, not a complete professional qualification. See [the curriculum](docs/curriculum.md) and [roadmap](ROADMAP.md).
 
+## Install
+
+Download **PyDojo-v0.1.2-macos-arm64.zip** from the [latest release](https://github.com/bujosa/pydojo/releases/latest), extract it and move PyDojo.app to `~/Applications`. The verified Keiko catalog integration is being released with Keiko 0.3.7.
+
+Python 3.13.18 and Ruff 0.12.5 are included. No terminal setup or account is needed. Initial platform: macOS Apple Silicon; the app is ad-hoc signed and not notarized. macOS may require first-launch approval in System Settings → Privacy & Security.
+
 ## Build and run
 
 Initial supported bundle: macOS Apple Silicon. Development needs Rust (pinned in rust-toolchain.toml), Python 3.11+ for scripts, and Xcode command-line tools for macOS packaging.
