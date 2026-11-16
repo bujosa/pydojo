@@ -1,0 +1,2237 @@
+[
+  {
+    "id": "names-and-values",
+    "outcome": "Create names for text, numbers and a boolean, and read a simple program from top to bottom.",
+    "prerequisites": [],
+    "vocabulary": [
+      {
+        "term": "value",
+        "meaning": "A piece of data such as text, a number, or True."
+      },
+      {
+        "term": "name",
+        "meaning": "An identifier that refers to a value; use descriptive snake_case."
+      },
+      {
+        "term": "assignment",
+        "meaning": "The = statement binds a name to the value on its right."
+      }
+    ],
+    "example": "course = \"Python\"\ncompleted = 2\nready = True\nprint(course, completed, ready)\nassert completed == 2\n",
+    "explanation": [
+      "A program is a sequence of instructions. Python reads these lines from top to bottom. In course = \"Python\", the name is course, = binds that name to a value, and quotes mark text. You do not type a semicolon at the end of a normal Python line.",
+      "\"Python\" is a str, 2 is an int, and True is a bool. Capitalization matters: True is a value, while true is an undefined name. A name can later be rebound; Python checks what an operation can do when that operation runs.",
+      "print(...) calls a function and displays values. Parentheses hold its arguments; commas separate them. assert completed == 2 checks a statement about the result: == compares values, whereas = assigns a name. The editor on the right is where you will type your answer.",
+      "Start with guided practice, then solve the independent lab. Check validates the saved answer against actual Python assertions. Run executes your playground and displays logs. A successful Run alone does not finish a lab."
+    ],
+    "prediction": {
+      "question": "What does print(course, completed, ready) display?",
+      "choices": [
+        "Python 2 True",
+        "course completed ready",
+        "Python \"2\" true"
+      ],
+      "correct": 0,
+      "explanation": "print reads the values bound to the names and separates them with spaces."
+    },
+    "practice": {
+      "task": "Create language as \"Python\" and attempts as the integer 1.",
+      "starter": "language = None\nattempts = None\n",
+      "solution": "language = \"Python\"\nattempts = 1\n",
+      "alternative": "language = str(\"Python\")\nattempts = 3 - 2\n",
+      "negative": "language = \"Python\"\nattempts = \"1\"\n",
+      "checks": "assert s.language == \"Python\", \"Use Python as text\"\nassert type(s.attempts) is int and s.attempts == 1, \"Use integer 1\"\n",
+      "runtime": "",
+      "hint": "Keep text in quotes and numbers outside quotes. True begins with a capital T.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint({name: value for name, value in vars(answer).items() if not name.startswith(\"_\")})\n"
+    },
+    "transfer": [
+      "Change completed to 3 in the worked example and predict the output.",
+      "In the lab, a number stored as text is a different value and will fail the check."
+    ]
+  },
+  {
+    "id": "numbers-and-operators",
+    "outcome": "Distinguish division, floor division and remainder, and use parentheses deliberately.",
+    "prerequisites": [
+      "names-and-values"
+    ],
+    "vocabulary": [
+      {
+        "term": "operator",
+        "meaning": "A symbol that computes a result from values."
+      },
+      {
+        "term": "remainder",
+        "meaning": "What is left after whole groups are removed."
+      },
+      {
+        "term": "floor division",
+        "meaning": "Division rounded toward negative infinity."
+      }
+    ],
+    "example": "minutes = 125\nhours = minutes // 60\nremainder = minutes % 60\nprint(hours, remainder)\nassert (hours, remainder) == (2, 5)\n",
+    "explanation": [
+      "Python supports +, -, *, /, //, %, and **. The / operator performs division and returns a float, even when the division is exact. The // operator performs floor division: it rounds down, including for negative numbers.",
+      "The remainder operator % gives the remainder after floor division. For a positive duration in minutes, minutes // 60 finds whole hours and minutes % 60 finds the leftover minutes. Parentheses control the order of operations; multiplication happens before addition.",
+      "Use integers for exact counts or money in cents. Binary floating point approximates many decimal fractions, so avoid relying on 0.1 + 0.2 being exactly 0.3."
+    ],
+    "prediction": {
+      "question": "What are hours and remainder?",
+      "choices": [
+        "2.08 and 0",
+        "2 and 5",
+        "3 and -55"
+      ],
+      "correct": 1,
+      "explanation": "125 contains two complete groups of sixty and five remaining minutes."
+    },
+    "practice": {
+      "task": "Convert 95 minutes into whole_hours and remaining_minutes using 60 minutes per hour.",
+      "starter": "whole_hours = None\nremaining_minutes = None\n",
+      "solution": "whole_hours = 95 // 60\nremaining_minutes = 95 % 60\n",
+      "alternative": "whole_hours, remaining_minutes = divmod(95, 60)\n",
+      "negative": "whole_hours = 95 / 60\nremaining_minutes = 35\n",
+      "checks": "assert s.whole_hours == 1 and type(s.whole_hours) is int, \"One whole hour\"\nassert s.remaining_minutes == 35, \"Thirty-five minutes remain\"\n",
+      "runtime": "",
+      "hint": "Calculate in cents first. // gives an integer for integer operands.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint({name: value for name, value in vars(answer).items() if not name.startswith(\"_\")})\n"
+    },
+    "transfer": [
+      "Try minutes = 0 and minutes = 60.",
+      "Try -1 // 60 and explain why flooring differs from truncation."
+    ]
+  },
+  {
+    "id": "strings-and-text",
+    "outcome": "Normalize text and build a readable message with an f-string.",
+    "prerequisites": [
+      "numbers-and-operators"
+    ],
+    "vocabulary": [
+      {
+        "term": "method",
+        "meaning": "A function accessed through a value, such as text.strip()."
+      },
+      {
+        "term": "immutable",
+        "meaning": "A value that cannot be modified in place."
+      },
+      {
+        "term": "f-string",
+        "meaning": "Text prefixed by f that interpolates expressions in braces."
+      }
+    ],
+    "example": "name = \"  Ada  \"\nclean = name.strip().lower()\nmessage = f\"Hello, {clean}!\"\nprint(message)\nassert message == \"Hello, ada!\"\n",
+    "explanation": [
+      "Strings are immutable sequences of characters. A method such as .strip() returns a new string with surrounding whitespace removed; it does not modify the original. A dot selects a method, and parentheses call it.",
+      "You can chain methods: name.strip().lower() first trims the text and then lowercases the returned string. In an f-string, expressions inside braces are inserted into the text. The f before the opening quote enables interpolation.",
+      "Text normalization is a product decision. This exercise deliberately lowercases a label; real personal names should usually keep their original capitalization."
+    ],
+    "prediction": {
+      "question": "What does the worked example print?",
+      "choices": [
+        "Hello, Ada!",
+        "Hello, {clean}!",
+        "Hello, ada!"
+      ],
+      "correct": 2,
+      "explanation": "strip removes the outside spaces, lower changes Ada to ada, and the f-string inserts that result."
+    },
+    "practice": {
+      "task": "Given label = \"  LAB  \", create clean_label as \"lab\".",
+      "starter": "label = \"  LAB  \"\nclean_label = None\n",
+      "solution": "label = \"  LAB  \"\nclean_label = label.strip().lower()\n",
+      "alternative": "label = \"  LAB  \"\nclean_label = label.lower().strip()\n",
+      "negative": "label = \"  LAB  \"\nclean_label = label.strip()\n",
+      "checks": "assert s.clean_label == \"lab\", \"Trim and lowercase the label\"\n",
+      "runtime": "",
+      "hint": "Apply .strip() and .lower() to the input, then insert the result into an f-string.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint({name: value for name, value in vars(answer).items() if not name.startswith(\"_\")})\n"
+    },
+    "transfer": [
+      "Try a label containing spaces in its middle; strip keeps them.",
+      "Remove the f prefix and observe what happens to the braces."
+    ]
+  },
+  {
+    "id": "booleans-and-comparisons",
+    "outcome": "Combine comparisons with and, or and not without confusing assignment and equality.",
+    "prerequisites": [
+      "strings-and-text"
+    ],
+    "vocabulary": [
+      {
+        "term": "comparison",
+        "meaning": "An expression that compares values."
+      },
+      {
+        "term": "boolean",
+        "meaning": "True or False."
+      },
+      {
+        "term": "short-circuit",
+        "meaning": "Skip an operand when the result is already determined."
+      }
+    ],
+    "example": "age = 20\nverified = True\nallowed = age >= 18 and verified\nprint(allowed)\nassert allowed is True\n",
+    "explanation": [
+      "A comparison such as age >= 18 produces True or False. Other comparisons include ==, !=, <, <= and >. Use == for equality of values; is is reserved for identity, with is None a common and intentional use.",
+      "and requires both conditions to be truthy; or needs at least one; not negates truthiness. These operators short-circuit: Python does not evaluate the right operand when the left already determines the result.",
+      "Empty strings and collections, zero and None are falsy. A nonempty string such as \"False\" is truthy. Keep boolean flags as real booleans when the task requires True or False."
+    ],
+    "prediction": {
+      "question": "If verified becomes False, what is allowed?",
+      "choices": [
+        "False",
+        "True",
+        "\"False\""
+      ],
+      "correct": 0,
+      "explanation": "The and expression needs both the age comparison and verification to be true."
+    },
+    "practice": {
+      "task": "Set is_empty to whether count = 0 equals zero.",
+      "starter": "count = 0\nis_empty = None\n",
+      "solution": "count = 0\nis_empty = count == 0\n",
+      "alternative": "count = 0\nis_empty = not bool(count)\n",
+      "negative": "count = 0\nis_empty = \"True\"\n",
+      "checks": "assert s.is_empty is True, \"Return an actual bool\"\n",
+      "runtime": "",
+      "hint": "Use >= to compare, and to combine, and not to invert.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint({name: value for name, value in vars(answer).items() if not name.startswith(\"_\")})\n"
+    },
+    "transfer": [
+      "Predict the result with age = 18.",
+      "Compare bool(\"\") with bool(\"False\") in the playground."
+    ]
+  },
+  {
+    "id": "lists-and-indexes",
+    "outcome": "Create a list, access its first item and make a slice without mutating the original.",
+    "prerequisites": [
+      "booleans-and-comparisons"
+    ],
+    "vocabulary": [
+      {
+        "term": "index",
+        "meaning": "A zero-based position in a sequence."
+      },
+      {
+        "term": "slice",
+        "meaning": "A selected range written with a colon inside brackets."
+      },
+      {
+        "term": "mutable",
+        "meaning": "A value whose contents can change in place."
+      }
+    ],
+    "example": "tools = [\"editor\", \"runner\", \"debugger\"]\nfirst = tools[0]\nrest = tools[1:]\nprint(first, len(rest))\nassert first == \"editor\" and len(rest) == 2\n",
+    "explanation": [
+      "A list stores values in order inside square brackets. Indexes start at zero: tools[0] reads the first item. A negative index counts from the end; tools[-1] is the last item. Accessing an index outside the list raises IndexError.",
+      "A slice such as tools[1:] creates a new list from index one to the end. len(tools) returns the number of items. A list is mutable: append adds one item in place and returns None, so do not replace your list with the result of append.",
+      "Copying a list with a slice makes a shallow copy. Nested mutable values are still shared; later labs explore how to avoid accidental aliasing."
+    ],
+    "prediction": {
+      "question": "What does print(first, len(rest)) display?",
+      "choices": [
+        "runner 3",
+        "editor 2",
+        "editor 3"
+      ],
+      "correct": 1,
+      "explanation": "Index zero selects editor; the remaining slice contains runner and debugger."
+    },
+    "practice": {
+      "task": "Given scores = [8, 9, 10], set last_score to the last item and score_count to the length.",
+      "starter": "scores = [8, 9, 10]\nlast_score = None\nscore_count = None\n",
+      "solution": "scores = [8, 9, 10]\nlast_score = scores[-1]\nscore_count = len(scores)\n",
+      "alternative": "scores = [8, 9, 10]\nlast_score = scores[len(scores) - 1]\nscore_count = len(scores)\n",
+      "negative": "scores = [8, 9, 10]\nlast_score = 9\nscore_count = 3\n",
+      "checks": "assert s.last_score == 10, \"Read the final item\"\nassert s.score_count == 3, \"Count the items\"\n",
+      "runtime": "",
+      "hint": "Use index 0 for the first element and [1:] for everything after it.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint({name: value for name, value in vars(answer).items() if not name.startswith(\"_\")})\n"
+    },
+    "transfer": [
+      "Try tools[:2] and predict which items it contains.",
+      "Call tools.append(\"tests\") and inspect both the list and the return value."
+    ]
+  },
+  {
+    "id": "dictionaries-and-keys",
+    "outcome": "Read a dictionary and distinguish a missing key from an explicit None value.",
+    "prerequisites": [
+      "lists-and-indexes"
+    ],
+    "vocabulary": [
+      {
+        "term": "dictionary",
+        "meaning": "A mutable mapping from unique keys to values."
+      },
+      {
+        "term": "key",
+        "meaning": "A hashable identifier used to retrieve a mapped value."
+      },
+      {
+        "term": "default",
+        "meaning": "A fallback used when a key is absent."
+      }
+    ],
+    "example": "profile = {\"name\": \"Ada\", \"level\": 1}\nname = profile[\"name\"]\ncity = profile.get(\"city\", \"Unknown\")\nprint(name, city)\nassert city == \"Unknown\"\n",
+    "explanation": [
+      "A dictionary maps keys to values: {\"name\": \"Ada\"} associates the key \"name\" with \"Ada\". Braces create the dictionary; the colon separates each key from its value. Dictionaries preserve insertion order, but their main purpose is lookup by key.",
+      "profile[\"name\"] requires the key to exist and raises KeyError if it does not. profile.get(\"city\", \"Unknown\") returns a default only when the key is absent. A present value of None stays None.",
+      "The expression \"name\" in profile tests for a key, not a value. Use clear keys that describe what a value means, and avoid guessing that a missing field is the same as an empty field."
+    ],
+    "prediction": {
+      "question": "What is city?",
+      "choices": [
+        "None",
+        "KeyError",
+        "\"Unknown\""
+      ],
+      "correct": 2,
+      "explanation": "city is absent, so get returns its explicit default."
+    },
+    "practice": {
+      "task": "Given user = {\"name\": \"Lin\"}, set role using .get with default \"learner\".",
+      "starter": "user = {\"name\": \"Lin\"}\nrole = None\n",
+      "solution": "user = {\"name\": \"Lin\"}\nrole = user.get(\"role\", \"learner\")\n",
+      "alternative": "user = dict(name=\"Lin\")\nrole = user[\"role\"] if \"role\" in user else \"learner\"\n",
+      "negative": "user = {\"name\": \"Lin\"}\nrole = user.get(\"role\")\n",
+      "checks": "assert s.role == \"learner\", \"Supply a fallback for a missing key\"\n",
+      "runtime": "",
+      "hint": "Put a comma after the key argument in .get and then supply the fallback.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint({name: value for name, value in vars(answer).items() if not name.startswith(\"_\")})\n"
+    },
+    "transfer": [
+      "Add city: None and observe that get does not replace it.",
+      "Explain when raising KeyError is more useful than silently providing a default."
+    ]
+  },
+  {
+    "id": "functions-and-return",
+    "outcome": "Define a function with parameters and return a value to its caller.",
+    "prerequisites": [
+      "dictionaries-and-keys"
+    ],
+    "vocabulary": [
+      {
+        "term": "parameter",
+        "meaning": "A named input in a function definition."
+      },
+      {
+        "term": "argument",
+        "meaning": "A concrete value passed by a caller."
+      },
+      {
+        "term": "return",
+        "meaning": "End a call and send a result back."
+      }
+    ],
+    "example": "def double(number):\n    return number * 2\n\n\nprint(double(4))\nassert double(4) == 8\n",
+    "explanation": [
+      "def introduces a function definition. The name double describes the operation; number is a parameter that receives an argument when the function is called. A colon starts the body, and indentation groups its statements. Use four spaces consistently.",
+      "return sends a value back to the caller and stops that call. print displays text but returns None; printing an answer is not the same as returning it. A function that reaches the end without return also returns None.",
+      "The definition does not run the body immediately. Each call supplies its own arguments and gets its own local names. Keep calculations separate from display so they can be reused and tested."
+    ],
+    "prediction": {
+      "question": "What value does double(4) return?",
+      "choices": [
+        "None",
+        "8",
+        "\"8\""
+      ],
+      "correct": 1,
+      "explanation": "return sends the integer result 4 * 2 to the caller."
+    },
+    "practice": {
+      "task": "Return three times number from triple(number).",
+      "starter": "def triple(number):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def triple(number):\n    return number * 3\n",
+      "alternative": "def triple(number):\n    return number + number + number\n",
+      "negative": "def triple(number):\n    print(number * 3)\n",
+      "checks": "assert s.triple(4) == 12, \"Return the result\"\nassert s.triple(0) == 0, \"Handle zero\"\nassert s.triple(-2) == -6, \"Handle negatives\"\n",
+      "runtime": "",
+      "hint": "Use return with the calculated value. Printing alone returns None.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.triple(4))\n"
+    },
+    "transfer": [
+      "Try calling area with keyword arguments.",
+      "Explain what happens if you delete the return statement."
+    ]
+  },
+  {
+    "id": "branches-and-boundaries",
+    "outcome": "Cover ordered conditions and check the boundary between two outcomes.",
+    "prerequisites": [
+      "functions-and-return"
+    ],
+    "vocabulary": [
+      {
+        "term": "branch",
+        "meaning": "One possible path through a program."
+      },
+      {
+        "term": "boundary",
+        "meaning": "A value where a decision changes."
+      },
+      {
+        "term": "early return",
+        "meaning": "Return before the end to keep later code simpler."
+      }
+    ],
+    "example": "def label(score):\n    if score >= 80:\n        return \"pass\"\n    return \"retry\"\n\n\nprint(label(80))\nassert label(79) == \"retry\"\n",
+    "explanation": [
+      "if evaluates a condition and runs its indented body only when that condition is truthy. An elif tries another condition when earlier ones failed; else handles everything that remains.",
+      "Order conditions from the most specific to the most general when ranges overlap. In the example, the boundary belongs to pass because >= includes 80. A missing equality often hides an off-by-one error.",
+      "An early return can make else unnecessary. Whichever style you choose, check values just below, exactly at, and just above each boundary."
+    ],
+    "prediction": {
+      "question": "What does label(80) return?",
+      "choices": [
+        "\"pass\"",
+        "\"retry\"",
+        "None"
+      ],
+      "correct": 0,
+      "explanation": "The >= comparison includes exactly 80."
+    },
+    "practice": {
+      "task": "Return \"freezing\" below zero, otherwise \"above freezing\".",
+      "starter": "def temperature_label(degrees):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def temperature_label(degrees):\n    if degrees < 0:\n        return \"freezing\"\n    return \"above freezing\"\n",
+      "alternative": "def temperature_label(degrees):\n    return \"freezing\" if degrees < 0 else \"above freezing\"\n",
+      "negative": "def temperature_label(degrees):\n    return \"freezing\" if degrees <= 0 else \"above freezing\"\n",
+      "checks": "assert s.temperature_label(-1) == \"freezing\", \"Below zero\"\nassert s.temperature_label(0) == \"above freezing\", \"Zero is not below zero\"\nassert s.temperature_label(5) == \"above freezing\", \"Positive value\"\n",
+      "runtime": "",
+      "hint": "Include the threshold itself in the free-shipping branch.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.temperature_label(-1))\n"
+    },
+    "transfer": [
+      "Add a second threshold and test both boundaries.",
+      "State the domain assumption for negative order totals."
+    ]
+  },
+  {
+    "id": "loops-and-accumulators",
+    "outcome": "Use for, a local accumulator and a clear inclusion rule.",
+    "prerequisites": [
+      "branches-and-boundaries"
+    ],
+    "vocabulary": [
+      {
+        "term": "iteration",
+        "meaning": "One execution of a loop body."
+      },
+      {
+        "term": "accumulator",
+        "meaning": "A value updated as items are processed."
+      },
+      {
+        "term": "identity",
+        "meaning": "An initial value that leaves the operation unchanged."
+      }
+    ],
+    "example": "def total_even(values):\n    total = 0\n    for value in values:\n        if value % 2 == 0:\n            total += value\n    return total\n\n\nprint(total_even([1, 2, 4]))\nassert total_even([]) == 0\n",
+    "explanation": [
+      "for value in values assigns each item to value and executes the indented body. It iterates over values directly; you rarely need manual indexes to add a sequence.",
+      "An accumulator remembers the result built so far. Initialize it before the loop, update it inside the loop, and return it after the loop. Returning inside the body would stop after the first selected item.",
+      "The empty collection is a useful design test: the loop body never runs, so the initial value becomes the result. For addition that identity is zero."
+    ],
+    "prediction": {
+      "question": "What does total_even([1, 2, 4]) return?",
+      "choices": [
+        "2",
+        "6",
+        "7"
+      ],
+      "correct": 1,
+      "explanation": "Only 2 and 4 enter the accumulator."
+    },
+    "practice": {
+      "task": "Count the even numbers, including zero and negative even numbers.",
+      "starter": "def count_even(values):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def count_even(values):\n    count = 0\n    for value in values:\n        if value % 2 == 0:\n            count += 1\n    return count\n",
+      "alternative": "def count_even(values):\n    return sum(1 for value in values if value % 2 == 0)\n",
+      "negative": "def count_even(values):\n    return len(values)\n",
+      "checks": "assert s.count_even([1, 2, 4]) == 2, \"Count matching items\"\nassert s.count_even([]) == 0, \"Empty input\"\nassert s.count_even([0, -2, 3]) == 2, \"Zero and negatives\"\n",
+      "runtime": "",
+      "hint": "Initialize zero before the loop; add only when value > 0.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.count_even([1, 2, 4]))\n"
+    },
+    "transfer": [
+      "Move return inside the loop and explain the failure.",
+      "Try the same rule on a tuple."
+    ]
+  },
+  {
+    "id": "comprehensions",
+    "outcome": "Read a comprehension in execution order and keep filtering separate from mapping.",
+    "prerequisites": [
+      "loops-and-accumulators"
+    ],
+    "vocabulary": [
+      {
+        "term": "comprehension",
+        "meaning": "Compact syntax for building a collection."
+      },
+      {
+        "term": "mapping",
+        "meaning": "Transforming each selected value."
+      },
+      {
+        "term": "filtering",
+        "meaning": "Keeping only values that satisfy a condition."
+      }
+    ],
+    "example": "numbers = [-2, 0, 3]\nsquares = [n * n for n in numbers if n > 0]\nprint(squares)\nassert squares == [9]\n",
+    "explanation": [
+      "A list comprehension builds a new list from an iterable. Read [n * n for n in numbers if n > 0] as: take each n, keep it if positive, then calculate n * n.",
+      "The expression on the left transforms each selected item. The trailing if filters which items participate. A comprehension preserves iteration order and leaves the original collection unchanged.",
+      "Prefer a loop when the body needs several statements or side effects. Comprehensions are most readable when they express one clear transformation and one simple filter."
+    ],
+    "prediction": {
+      "question": "What is squares in the example?",
+      "choices": [
+        "[4, 0, 9]",
+        "[3]",
+        "[9]"
+      ],
+      "correct": 2,
+      "explanation": "The filter excludes -2 and 0 before the square is calculated."
+    },
+    "practice": {
+      "task": "Return a new list containing each number squared, in input order.",
+      "starter": "def squares(values):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def squares(values):\n    return [value * value for value in values]\n",
+      "alternative": "def squares(values):\n    result = []\n    for value in values:\n        result.append(value**2)\n    return result\n",
+      "negative": "def squares(values):\n    return values\n",
+      "checks": "assert s.squares([-2, 3]) == [4, 9], \"Transform each value\"\nassert s.squares([]) == [], \"Empty result\"\nassert s.squares([0, 1]) == [0, 1], \"Keep order\"\n",
+      "runtime": "",
+      "hint": "Filter using the trimmed string, then map it to lowercase.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.squares([-2, 3]))\n"
+    },
+    "transfer": [
+      "Rewrite the comprehension as a loop.",
+      "Explain why a set comprehension would change this lab contract."
+    ]
+  },
+  {
+    "id": "sets-and-membership",
+    "outcome": "Use a set for uniqueness while choosing explicitly whether order matters.",
+    "prerequisites": [
+      "comprehensions"
+    ],
+    "vocabulary": [
+      {
+        "term": "set",
+        "meaning": "A collection of unique hashable values."
+      },
+      {
+        "term": "hashable",
+        "meaning": "A value usable as a set member or dictionary key."
+      },
+      {
+        "term": "first-seen order",
+        "meaning": "Keep the earliest occurrence and retain its position."
+      }
+    ],
+    "example": "roles = {\"reader\", \"editor\", \"reader\"}\nprint(len(roles))\nassert \"reader\" in roles\nassert len(roles) == 2\n",
+    "explanation": [
+      "A set stores unique hashable values and supports fast membership checks with in. Repeated values collapse into one entry. An empty set is set(); {} creates an empty dictionary instead.",
+      "Sets do not provide a meaningful output order. If an API promises first-seen order, keep a list for output and a set for membership. Choosing a collection is part of specifying behavior.",
+      "Dictionary keys and set members must be hashable. Strings and integers work; mutable lists do not. Converting to a set is useful only when losing duplicates and order is intentional."
+    ],
+    "prediction": {
+      "question": "How many roles remain?",
+      "choices": [
+        "2",
+        "3",
+        "1"
+      ],
+      "correct": 0,
+      "explanation": "The duplicate reader contributes no additional set member."
+    },
+    "practice": {
+      "task": "Return the set of tags present in both inputs.",
+      "starter": "def shared_tags(left, right):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def shared_tags(left, right):\n    return set(left) & set(right)\n",
+      "alternative": "def shared_tags(left, right):\n    return {tag for tag in left if tag in right}\n",
+      "negative": "def shared_tags(left, right):\n    return set(left) | set(right)\n",
+      "checks": "assert s.shared_tags([\"a\", \"b\"], [\"b\", \"c\"]) == {\"b\"}, \"Intersection, not union\"\nassert s.shared_tags([], [\"a\"]) == set(), \"Empty intersection\"\nassert s.shared_tags([\"x\", \"x\"], [\"x\"]) == {\"x\"}, \"Unique result\"\n",
+      "runtime": "",
+      "hint": "Keep a separate output list, or use dictionary insertion order to preserve first occurrences.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.shared_tags(['a', 'b'], ['b', 'c']))\n"
+    },
+    "transfer": [
+      "Try a list as a set member and read the TypeError.",
+      "Compare order guarantees of list, dict and set."
+    ]
+  },
+  {
+    "id": "unpacking-and-enumerate",
+    "outcome": "Unpack records and use enumerate when a position is part of the result.",
+    "prerequisites": [
+      "sets-and-membership"
+    ],
+    "vocabulary": [
+      {
+        "term": "tuple",
+        "meaning": "An immutable ordered group of values."
+      },
+      {
+        "term": "unpacking",
+        "meaning": "Assign elements of an iterable to separate targets."
+      },
+      {
+        "term": "enumerate",
+        "meaning": "Iterate over counter-and-value pairs."
+      }
+    ],
+    "example": "names = [\"Ada\", \"Lin\"]\nrows = [(position, name) for position, name in enumerate(names, start=1)]\nprint(rows)\nassert rows == [(1, \"Ada\"), (2, \"Lin\")]\n",
+    "explanation": [
+      "A tuple groups values in a fixed ordered record, such as (1, \"Ada\"). Unpacking assigns its elements to names: position, name = row. The number of targets must match unless one starred target gathers the remaining values.",
+      "enumerate(iterable, start=1) yields pairs containing a counter and an item. Use it when the output needs positions. For plain transformations, iterate over the values directly.",
+      "Python indexes usually start at zero, while labels shown to people often start at one. Set start explicitly rather than adjusting the counter inconsistently in several places."
+    ],
+    "prediction": {
+      "question": "What is the first row?",
+      "choices": [
+        "(0, \"Ada\")",
+        "(1, \"Ada\")",
+        "(\"Ada\", 1)"
+      ],
+      "correct": 1,
+      "explanation": "enumerate yields counter first, with the explicit start of one."
+    },
+    "practice": {
+      "task": "Given a two-item tuple, return a tuple with its items swapped.",
+      "starter": "def swap_pair(pair):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def swap_pair(pair):\n    left, right = pair\n    return right, left\n",
+      "alternative": "def swap_pair(pair):\n    return pair[1], pair[0]\n",
+      "negative": "def swap_pair(pair):\n    return pair\n",
+      "checks": "assert s.swap_pair((1, 2)) == (2, 1), \"Reverse the pair\"\nassert s.swap_pair((\"a\", None)) == (None, \"a\"), \"Preserve values\"\nassert type(s.swap_pair((1, 2))) is tuple, \"Return a tuple\"\n",
+      "runtime": "",
+      "hint": "Use enumerate(names, start=1) and an f-string for each label.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.swap_pair((1, 2)))\n"
+    },
+    "transfer": [
+      "Use ordinary unpacking on one generated row.",
+      "Explain when a tuple is clearer than a dictionary."
+    ]
+  },
+  {
+    "id": "defaults-without-aliasing",
+    "outcome": "Avoid shared mutable defaults and preserve caller-owned lists.",
+    "prerequisites": [
+      "unpacking-and-enumerate"
+    ],
+    "vocabulary": [
+      {
+        "term": "default argument",
+        "meaning": "An input value used when the caller omits an argument."
+      },
+      {
+        "term": "sentinel",
+        "meaning": "A special value that represents a distinct condition."
+      },
+      {
+        "term": "aliasing",
+        "meaning": "Multiple names referring to the same mutable object."
+      }
+    ],
+    "example": "def append_copy(value, items=None):\n    if items is None:\n        items = []\n    return [*items, value]\n\n\nprint(append_copy(\"a\"))\nassert append_copy(\"b\") == [\"b\"]\n",
+    "explanation": [
+      "Default argument values are evaluated once when Python executes a function definition. A default like items=[] therefore shares the same list across calls. An earlier call can unexpectedly affect a later one.",
+      "Use None as a sentinel for an omitted argument, then create a fresh collection inside the body. Check with is None so an intentionally empty list is handled according to the contract.",
+      "Ownership matters even without defaults. Returning [*items, value] creates a new outer list and leaves the caller's list unchanged. This is still a shallow copy, not a copy of nested objects."
+    ],
+    "prediction": {
+      "question": "What does the first call return?",
+      "choices": [
+        "[\"a\", \"b\"]",
+        "None",
+        "[\"a\"]"
+      ],
+      "correct": 2,
+      "explanation": "Each omitted input gets a fresh list, then a new list is returned."
+    },
+    "practice": {
+      "task": "Return a fresh list, or a fresh empty list if omitted.",
+      "starter": "def copy_items(items=None):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def copy_items(items=None):\n    return [] if items is None else list(items)\n",
+      "alternative": "def copy_items(items=None):\n    if items is None:\n        return []\n    return items.copy()\n",
+      "negative": "def copy_items(items=None):\n    return items if items is not None else []\n",
+      "checks": "assert s.copy_items() == [], \"Omitted input\"\nassert s.copy_items([1, 2]) == [1, 2], \"Copy contents\"\nassert ((items := [1]), s.copy_items(items) is not items)[-1], \"Return a different list\"\n",
+      "runtime": "",
+      "hint": "Construct a new list instead of appending to the caller's list.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.copy_items())\n"
+    },
+    "transfer": [
+      "Call the function twice and compare identities.",
+      "Explain why list.copy does not deeply clone nested dictionaries."
+    ]
+  },
+  {
+    "id": "keyword-only-apis",
+    "outcome": "Use keyword-only parameters for options whose meaning would be ambiguous by position.",
+    "prerequisites": [
+      "defaults-without-aliasing"
+    ],
+    "vocabulary": [
+      {
+        "term": "keyword-only",
+        "meaning": "An argument that callers must pass by name."
+      },
+      {
+        "term": "signature",
+        "meaning": "The names, order and calling rules of parameters."
+      },
+      {
+        "term": "TypeError",
+        "meaning": "An exception for an unsupported operation or invalid call shape."
+      }
+    ],
+    "example": "def price(amount, *, discount=0):\n    return amount - discount\n\n\nprint(price(100, discount=15))\nassert price(100) == 100\n",
+    "explanation": [
+      "Arguments before * may be positional or named. Parameters after a bare * are keyword-only: callers must write their names. This makes an option such as discount=15 readable at the call site.",
+      "Default values make options optional; they do not change whether the argument is positional or keyword-only. Unexpected keywords and missing required arguments produce TypeError before the body starts.",
+      "A small explicit signature is usually easier to understand than accepting arbitrary **kwargs. Validate a public API's shape as well as its numeric results."
+    ],
+    "prediction": {
+      "question": "What does price(100, discount=15) return?",
+      "choices": [
+        "85",
+        "100",
+        "TypeError"
+      ],
+      "correct": 0,
+      "explanation": "The named option is accepted and subtracted from the amount."
+    },
+    "practice": {
+      "task": "Return value multiplied by a keyword-only factor that defaults to 2.",
+      "starter": "def scale(value, *, factor=2):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def scale(value, *, factor=2):\n    return value * factor\n",
+      "alternative": "def scale(value, *, factor=2):\n    result = factor * value\n    return result\n",
+      "negative": "def scale(value, *, factor=2):\n    return value * 2\n",
+      "checks": "assert s.scale(3) == 6, \"Use default\"\nassert s.scale(3, factor=4) == 12, \"Use supplied factor\"\nassert (\n    __import__(\"inspect\").signature(s.scale).parameters[\"factor\"].kind.name\n    == \"KEYWORD_ONLY\"\n), \"Keyword-only parameter\"\n",
+      "runtime": "",
+      "hint": "Place a bare * before the option in the signature.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.scale(3))\n"
+    },
+    "transfer": [
+      "Try passing excited positionally and read the error.",
+      "Name a real API option that should be keyword-only."
+    ]
+  },
+  {
+    "id": "missing-is-not-falsy",
+    "outcome": "Preserve zero, False and empty text when only None means missing.",
+    "prerequisites": [
+      "keyword-only-apis"
+    ],
+    "vocabulary": [
+      {
+        "term": "None",
+        "meaning": "The singleton representing absence in many Python APIs."
+      },
+      {
+        "term": "truthiness",
+        "meaning": "How a value behaves in a condition."
+      },
+      {
+        "term": "explicit null",
+        "meaning": "A present field whose value is None."
+      }
+    ],
+    "example": "def fallback(value):\n    return \"unknown\" if value is None else value\n\n\nprint(fallback(0))\nassert fallback(0) == 0\n",
+    "explanation": [
+      "None is a singleton commonly used to represent absence. Test it with value is None. Zero, False and empty text are different values that may be perfectly valid input.",
+      "value or fallback replaces every falsy value, not just None. That shorthand is appropriate only when the contract intentionally treats all falsy values as missing.",
+      "Write a table of present, missing and explicit-null cases before choosing a fallback rule. A dictionary's get method and a None check answer different questions."
+    ],
+    "prediction": {
+      "question": "What does fallback(0) return?",
+      "choices": [
+        "\"unknown\"",
+        "0",
+        "None"
+      ],
+      "correct": 1,
+      "explanation": "Zero is a present value; only None triggers the fallback."
+    },
+    "practice": {
+      "task": "Return \"Anonymous\" only for None; preserve empty strings.",
+      "starter": "def display_name(name):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def display_name(name):\n    return \"Anonymous\" if name is None else name\n",
+      "alternative": "def display_name(name):\n    if name is None:\n        return \"Anonymous\"\n    return name\n",
+      "negative": "def display_name(name):\n    return name or \"Anonymous\"\n",
+      "checks": "assert s.display_name(None) == \"Anonymous\", \"Missing name\"\nassert s.display_name(\"\") == \"\", \"Empty is present\"\nassert s.display_name(\"Ada\") == \"Ada\", \"Ordinary name\"\n",
+      "runtime": "",
+      "hint": "Use an identity comparison with None, not or.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.display_name(None))\n"
+    },
+    "transfer": [
+      "Compare dict.get with an absent key and a present None.",
+      "Document an API where an empty string means a deliberate user choice."
+    ]
+  },
+  {
+    "id": "grouping-records",
+    "outcome": "Build dictionary buckets without losing records or sharing the same list between groups.",
+    "prerequisites": [
+      "missing-is-not-falsy"
+    ],
+    "vocabulary": [
+      {
+        "term": "bucket",
+        "meaning": "The list of records belonging to one grouping key."
+      },
+      {
+        "term": "setdefault",
+        "meaning": "Get a value or insert and return a default."
+      },
+      {
+        "term": "aggregation",
+        "meaning": "Combining several records into a summary."
+      }
+    ],
+    "example": "def group_words(words):\n    groups = {}\n    for word in words:\n        groups.setdefault(len(word), []).append(word)\n    return groups\n\n\nprint(group_words([\"a\", \"to\", \"b\"]))\nassert group_words([]) == {}\n",
+    "explanation": [
+      "Grouping maps a key to a list of records with that key. Start with an empty dictionary and create a fresh list the first time each key appears. Append every record to its group in encounter order.",
+      "setdefault(key, default) retrieves an existing value or inserts the default and returns it. defaultdict(list) is another option; calling list creates a separate list for each missing key.",
+      "Do not initialize several groups with the same mutable list. Otherwise adding one record can change multiple groups at once. Preserve records unless the task explicitly asks for aggregation."
+    ],
+    "prediction": {
+      "question": "What is the bucket for length 1?",
+      "choices": [
+        "[\"b\"]",
+        "[\"a\", \"to\", \"b\"]",
+        "[\"a\", \"b\"]"
+      ],
+      "correct": 2,
+      "explanation": "Both one-character words enter the same bucket in input order."
+    },
+    "practice": {
+      "task": "Count occurrences of each exact word.",
+      "starter": "def count_words(words):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def count_words(words):\n    counts = {}\n    for word in words:\n        counts[word] = counts.get(word, 0) + 1\n    return counts\n",
+      "alternative": "def count_words(words):\n    from collections import Counter\n\n    return dict(Counter(words))\n",
+      "negative": "def count_words(words):\n    return {word: 1 for word in words}\n",
+      "checks": "assert s.count_words([\"a\", \"b\", \"a\"]) == {\"a\": 2, \"b\": 1}, \"Accumulate counts\"\nassert s.count_words([]) == {}, \"Empty counts\"\nassert s.count_words([\"A\", \"a\"]) == {\"A\": 1, \"a\": 1}, \"Case-sensitive keys\"\n",
+      "runtime": "",
+      "hint": "Create one bucket per team, then append names instead of replacing the bucket.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.count_words(['a', 'b', 'a']))\n"
+    },
+    "transfer": [
+      "Try three teams and ensure their buckets are separate lists.",
+      "Explain the memory cost of retaining all records versus only counts."
+    ]
+  },
+  {
+    "id": "sorting-with-keys",
+    "outcome": "Use a key function and preserve input when producing an ordered view.",
+    "prerequisites": [
+      "grouping-records"
+    ],
+    "vocabulary": [
+      {
+        "term": "key function",
+        "meaning": "A function that extracts the comparison value."
+      },
+      {
+        "term": "stable sort",
+        "meaning": "Equal keys preserve their previous order."
+      },
+      {
+        "term": "lambda",
+        "meaning": "A short anonymous function expression."
+      }
+    ],
+    "example": "rows = [{\"name\": \"b\", \"score\": 2}, {\"name\": \"a\", \"score\": 2}]\nordered = sorted(rows, key=lambda row: (-row[\"score\"], row[\"name\"]))\nprint([row[\"name\"] for row in ordered])\nassert rows[0][\"name\"] == \"b\"\n",
+    "explanation": [
+      "sorted(iterable, key=...) returns a new list. list.sort mutates an existing list and returns None. Pick the operation that matches the ownership contract.",
+      "A key function computes the value used for comparison. A lambda is a small anonymous function. A tuple key compares its first field, then the next field when earlier fields tie.",
+      "Python sorting is stable: equal keys keep their input order. For descending numeric score and ascending name, use (-score, name); reverse=True would reverse both fields."
+    ],
+    "prediction": {
+      "question": "What names are printed?",
+      "choices": [
+        "[\"a\", \"b\"]",
+        "[\"b\", \"a\"]",
+        "TypeError"
+      ],
+      "correct": 0,
+      "explanation": "Scores tie, so the ascending name breaks the tie."
+    },
+    "practice": {
+      "task": "Return a new list of words ordered by length ascending; ties preserve input order.",
+      "starter": "def sort_by_length(words):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def sort_by_length(words):\n    return sorted(words, key=len)\n",
+      "alternative": "def sort_by_length(words):\n    return sorted(words, key=lambda word: len(word))\n",
+      "negative": "def sort_by_length(words):\n    return sorted(words)\n",
+      "checks": "assert s.sort_by_length([\"bbb\", \"z\", \"aa\", \"x\"]) == [\"z\", \"x\", \"aa\", \"bbb\"], (\n    \"Stable length ordering\"\n)\nassert s.sort_by_length([]) == [], \"Empty view\"\n",
+      "runtime": "",
+      "hint": "Use a tuple key with negative score and unchanged name.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.sort_by_length(['bbb', 'z', 'aa', 'x']))\n"
+    },
+    "transfer": [
+      "Add identical keys and confirm stability.",
+      "Explain why reverse=True would produce the wrong tie order."
+    ]
+  },
+  {
+    "id": "generators-and-laziness",
+    "outcome": "Write a generator and distinguish creating it from consuming it.",
+    "prerequisites": [
+      "sorting-with-keys"
+    ],
+    "vocabulary": [
+      {
+        "term": "generator",
+        "meaning": "A resumable iterator produced by a function with yield."
+      },
+      {
+        "term": "lazy",
+        "meaning": "Compute values only when requested."
+      },
+      {
+        "term": "StopIteration",
+        "meaning": "The signal that an iterator has no more values."
+      }
+    ],
+    "example": "def countdown(start):\n    while start > 0:\n        yield start\n        start -= 1\n\n\nprint(list(countdown(3)))\nassert list(countdown(0)) == []\n",
+    "explanation": [
+      "A function containing yield returns a generator object when called. Its body runs as the caller requests values, rather than building the complete result immediately.",
+      "yield produces one value and suspends the function, retaining local state. next(generator) resumes it; a for loop consumes values until StopIteration indicates completion.",
+      "A generator is normally single-use. Converting it to a list consumes it and allocates memory for all results. Laziness helps large or infinite streams only when callers also consume incrementally."
+    ],
+    "prediction": {
+      "question": "What does list(countdown(3)) produce?",
+      "choices": [
+        "[0,1,2]",
+        "[3,2,1]",
+        "[3,2,1,0]"
+      ],
+      "correct": 1,
+      "explanation": "The while condition stops before yielding zero."
+    },
+    "practice": {
+      "task": "Yield start, start-1, down to 1. Yield nothing for zero or negative start.",
+      "starter": "def countdown(start):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def countdown(start):\n    while start > 0:\n        yield start\n        start -= 1\n",
+      "alternative": "def countdown(start):\n    yield from range(start, 0, -1)\n",
+      "negative": "def countdown(start):\n    yield from range(start)\n",
+      "checks": "assert list(s.countdown(3)) == [3, 2, 1], \"Descending order\"\nassert list(s.countdown(0)) == [], \"Empty at zero\"\nassert list(s.countdown(-1)) == [], \"Empty for negatives\"\nassert __import__(\"inspect\").isgenerator(s.countdown(2)), \"Return a generator\"\n",
+      "runtime": "",
+      "hint": "Use yield inside a loop over range(0, len(items), size). Validate size before iteration.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(list(answer.countdown(2)))\n"
+    },
+    "transfer": [
+      "Call next twice, then consume the rest.",
+      "Explain why validation inside a generator happens at consumption time."
+    ]
+  },
+  {
+    "id": "exceptions-and-validation",
+    "outcome": "Validate an input and raise a specific exception instead of returning a misleading value.",
+    "prerequisites": [
+      "generators-and-laziness"
+    ],
+    "vocabulary": [
+      {
+        "term": "exception",
+        "meaning": "A signal that ordinary execution cannot continue."
+      },
+      {
+        "term": "raise",
+        "meaning": "Create and propagate an exception."
+      },
+      {
+        "term": "validation",
+        "meaning": "Check whether input meets an explicit rule."
+      }
+    ],
+    "example": "def positive(value):\n    if value <= 0:\n        raise ValueError(\"value must be positive\")\n    return value\n\n\nprint(positive(3))\nassert positive(3) == 3\n",
+    "explanation": [
+      "An exception interrupts ordinary control flow and travels to the nearest matching handler. raise ValueError(...) communicates that the input value violates this function's rule.",
+      "Validate at a boundary before using invalid data. A function that returns zero for both a real zero and a failed operation forces its callers to guess what happened.",
+      "Catch only exceptions you can handle meaningfully. A broad except can hide a programming defect. Tests should verify both valid outputs and the precise invalid-input policy."
+    ],
+    "prediction": {
+      "question": "What does positive(0) do?",
+      "choices": [
+        "Returns 0",
+        "Raises ValueError",
+        "Returns None"
+      ],
+      "correct": 1,
+      "explanation": "The validation branch raises before the return can run."
+    },
+    "practice": {
+      "task": "Return a positive value unchanged; raise ValueError for zero or negatives.",
+      "starter": "def require_positive(value):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def require_positive(value):\n    if value <= 0:\n        raise ValueError(\"expected positive\")\n    return value\n",
+      "alternative": "def require_positive(value):\n    if value > 0:\n        return value\n    raise ValueError(\"expected positive\")\n",
+      "negative": "def require_positive(value):\n    return abs(value)\n",
+      "checks": "assert s.require_positive(3) == 3, \"Preserve valid input\"\nassert raises(ValueError, s.require_positive, 0), \"Reject zero\"\nassert raises(ValueError, s.require_positive, -1), \"Reject negatives\"\n",
+      "runtime": "",
+      "hint": "Raise ValueError before dividing when the denominator equals zero.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.require_positive(3))\n"
+    },
+    "transfer": [
+      "Compare this public ValueError policy with Python's built-in ZeroDivisionError.",
+      "Write an error message that helps a caller fix its input."
+    ]
+  },
+  {
+    "id": "parsing-with-fallbacks",
+    "outcome": "Handle expected conversion errors without swallowing unrelated problems.",
+    "prerequisites": [
+      "exceptions-and-validation"
+    ],
+    "vocabulary": [
+      {
+        "term": "parsing",
+        "meaning": "Convert a textual representation into structured data."
+      },
+      {
+        "term": "try/except",
+        "meaning": "Handle a specific exceptional path."
+      },
+      {
+        "term": "error policy",
+        "meaning": "The documented outcome for invalid input."
+      }
+    ],
+    "example": "def parse_or_none(text):\n    try:\n        return int(text)\n    except ValueError:\n        return None\n\n\nprint(parse_or_none(\"12\"))\nassert parse_or_none(\"no\") is None\n",
+    "explanation": [
+      "Parsing converts a representation into a usable value. int(text) accepts surrounding whitespace and a sign, but rejects decimal fractions and arbitrary words with ValueError.",
+      "Place only the operation that may fail inside try. except ValueError handles that expected failure. Returning None is an explicit policy here, not a replacement for every exception.",
+      "TypeError means a different contract problem, such as passing an unsupported object. Do not catch every exception when your API promises only to handle malformed text."
+    ],
+    "prediction": {
+      "question": "What is parse_or_none(\"no\")?",
+      "choices": [
+        "0",
+        "ValueError",
+        "None"
+      ],
+      "correct": 2,
+      "explanation": "The matching except branch deliberately returns None."
+    },
+    "practice": {
+      "task": "Parse integer text; on ValueError return default, which defaults to zero.",
+      "starter": "def parse_or(text, default=0):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def parse_or(text, default=0):\n    try:\n        return int(text)\n    except ValueError:\n        return default\n",
+      "alternative": "def parse_or(text, default=0):\n    try:\n        parsed = int(text)\n    except ValueError:\n        parsed = default\n    return parsed\n",
+      "negative": "def parse_or(text, default=0):\n    return int(text)\n",
+      "checks": "assert s.parse_or(\"3\") == 3, \"Valid text\"\nassert s.parse_or(\"x\") == 0, \"Default fallback\"\nassert s.parse_or(\"x\", 7) == 7, \"Explicit fallback\"\nassert s.parse_or(\"-2\") == -2, \"Negative integers are valid here\"\n",
+      "runtime": "",
+      "hint": "Catch ValueError from int, then validate the parsed count.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.parse_or('3'))\n"
+    },
+    "transfer": [
+      "Try a list as input and explain the uncaught TypeError.",
+      "Explain why zero must not be mistaken for parse failure."
+    ]
+  },
+  {
+    "id": "json-at-the-boundary",
+    "outcome": "Distinguish successful JSON decoding from a valid domain record.",
+    "prerequisites": [
+      "parsing-with-fallbacks"
+    ],
+    "vocabulary": [
+      {
+        "term": "JSON",
+        "meaning": "A text format for structured data."
+      },
+      {
+        "term": "schema",
+        "meaning": "The required shape and rules of a record."
+      },
+      {
+        "term": "boundary",
+        "meaning": "Where data enters from another system or representation."
+      }
+    ],
+    "example": "import json\n\nrecord = json.loads('{\"name\":\"Ada\",\"active\":true}')\nprint(record[\"active\"])\nassert record[\"active\"] is True\n",
+    "explanation": [
+      "json.loads turns JSON text into Python data. JSON true becomes True, null becomes None, objects become dicts, and arrays become lists. Valid JSON can also be a single number or string.",
+      "Decoding proves only that the text follows JSON syntax. It does not prove that a required field exists or has the right type. Validate the shape before treating external data as a trusted domain object.",
+      "In Python, bool is a subclass of int. Use type(value) is int when an exact integer is required and True must be rejected as a count."
+    ],
+    "prediction": {
+      "question": "What is the Python value of active?",
+      "choices": [
+        "True",
+        "\"true\"",
+        "1"
+      ],
+      "correct": 0,
+      "explanation": "JSON true decodes to the Python boolean True."
+    },
+    "practice": {
+      "task": "Decode a JSON array of strings. Raise ValueError for other shapes or malformed JSON.",
+      "starter": "def read_names(text):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def read_names(text):\n    import json\n\n    value = json.loads(text)\n    if not isinstance(value, list) or not all(isinstance(item, str) for item in value):\n        raise ValueError(\"expected list of strings\")\n    return value\n",
+      "alternative": "def read_names(text):\n    import json\n\n    items = json.loads(text)\n    if type(items) is not list:\n        raise ValueError(\"expected list\")\n    for item in items:\n        if type(item) is not str:\n            raise ValueError(\"expected string\")\n    return items\n",
+      "negative": "def read_names(text):\n    import json\n\n    return json.loads(text)\n",
+      "checks": "assert s.read_names('[\"Ada\",\"Lin\"]') == [\"Ada\", \"Lin\"], \"Decode names\"\nassert s.read_names(\"[]\") == [], \"Empty array\"\nassert raises(ValueError, s.read_names, \"[1]\"), \"Check element types\"\nassert raises(ValueError, s.read_names, \"{}\"), \"Check container type\"\n",
+      "runtime": "",
+      "hint": "Decode first, validate the object and name, then construct a clean result.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.read_names('[\"Ada\",\"Lin\"]'))\n"
+    },
+    "transfer": [
+      "Try JSON null and a top-level string.",
+      "Explain why blindly trusting a type annotation would not validate JSON."
+    ]
+  },
+  {
+    "id": "csv-with-a-parser",
+    "outcome": "Use DictReader to handle quoted fields and validate required headers.",
+    "prerequisites": [
+      "json-at-the-boundary"
+    ],
+    "vocabulary": [
+      {
+        "term": "CSV",
+        "meaning": "A tabular text format with separators and quoting rules."
+      },
+      {
+        "term": "stream",
+        "meaning": "An object from which data can be read incrementally."
+      },
+      {
+        "term": "header",
+        "meaning": "The first row naming the columns."
+      }
+    ],
+    "example": "import csv\nimport io\n\nrows = list(csv.DictReader(io.StringIO('name,city\\n\"Ada, Jr\",Paris\\n')))\nprint(rows[0][\"name\"])\nassert rows[0][\"name\"] == \"Ada, Jr\"\n",
+    "explanation": [
+      "CSV is a format with quoting rules, not simply text separated by commas. A comma inside a quoted field belongs to the value. Newlines may also appear inside quoted fields.",
+      "csv.DictReader reads the header and produces dictionaries. io.StringIO presents an in-memory string as a text stream, so the same parser can be used without touching real files.",
+      "Validate headers explicitly before accessing columns. Decide whether blank fields are allowed; a syntactically readable file can still violate your domain rules."
+    ],
+    "prediction": {
+      "question": "What is the first name?",
+      "choices": [
+        "Ada",
+        "Ada, Jr",
+        "\"Ada, Jr\""
+      ],
+      "correct": 1,
+      "explanation": "The parser removes CSV quoting while preserving the embedded comma."
+    },
+    "practice": {
+      "task": "Return the name column exactly, respecting quoted commas. Require a name header.",
+      "starter": "def csv_names(text):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def csv_names(text):\n    import csv\n    import io\n\n    reader = csv.DictReader(io.StringIO(text))\n    if \"name\" not in (reader.fieldnames or []):\n        raise ValueError(\"name header required\")\n    return [row[\"name\"] for row in reader]\n",
+      "alternative": "def csv_names(text):\n    from csv import DictReader\n    from io import StringIO\n\n    reader = DictReader(StringIO(text))\n    if not reader.fieldnames or \"name\" not in reader.fieldnames:\n        raise ValueError(\"missing name\")\n    return list(map(lambda row: row[\"name\"], reader))\n",
+      "negative": "def csv_names(text):\n    return [line.split(\",\")[0] for line in text.splitlines()[1:]]\n",
+      "checks": "assert s.csv_names('name,city\\n\"Ada, Jr\",Paris\\n') == [\"Ada, Jr\"], \"Parse quotes\"\nassert s.csv_names(\"name\\n\") == [], \"No data rows\"\nassert raises(ValueError, s.csv_names, \"city\\nParis\\n\"), \"Require name\"\n",
+      "runtime": "",
+      "hint": "Use csv.DictReader over io.StringIO; never split each line on a comma.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.csv_names('name,city\\n\"Ada, Jr\",Paris\\n'))\n"
+    },
+    "transfer": [
+      "Add a quoted newline inside a field.",
+      "Describe how a malformed row should be reported in an import tool."
+    ]
+  },
+  {
+    "id": "files-and-contexts",
+    "outcome": "Read and write UTF-8 files with a context manager in the private scratch workspace.",
+    "prerequisites": [
+      "csv-with-a-parser"
+    ],
+    "vocabulary": [
+      {
+        "term": "context manager",
+        "meaning": "An object defining setup and cleanup for a with block."
+      },
+      {
+        "term": "encoding",
+        "meaning": "The mapping between text characters and bytes."
+      },
+      {
+        "term": "side effect",
+        "meaning": "An observable change outside a returned value."
+      }
+    ],
+    "example": "from pathlib import Path\n\npath = Path(\"example.txt\")\nwith path.open(\"w\", encoding=\"utf-8\") as stream:\n    stream.write(\"hello\\n\")\nprint(path.read_text(encoding=\"utf-8\").strip())\nassert path.read_text(encoding=\"utf-8\") == \"hello\\n\"\n",
+    "explanation": [
+      "A file is an external resource that must be closed even if an error occurs. with opens a context-managed lifetime and calls cleanup when the block exits, including exceptional exits.",
+      "Specify encoding=\"utf-8\" for a portable text contract. A file opened in w mode is truncated immediately. Reading and writing are side effects, so keep their location and ownership explicit.",
+      "PyDojo runs each session in a new private scratch directory. Paths in these exercises refer to temporary learning files, not your Documents directory. They are removed after the session, so save reusable logic in answer.py rather than relying on persistent scratch files."
+    ],
+    "prediction": {
+      "question": "What is printed after the file is read?",
+      "choices": [
+        "hello",
+        "hello\\n",
+        "FileNotFoundError"
+      ],
+      "correct": 0,
+      "explanation": "The file exists within this scratch session and strip removes its final newline."
+    },
+    "practice": {
+      "task": "Read UTF-8 lines, trimming each and excluding blank lines. Let FileNotFoundError propagate for a missing file.",
+      "starter": "def read_nonblank(path):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def read_nonblank(path):\n    with open(path, encoding=\"utf-8\") as stream:\n        return [line.strip() for line in stream if line.strip()]\n",
+      "alternative": "def read_nonblank(path):\n    from pathlib import Path\n\n    return [\n        line.strip()\n        for line in Path(path).read_text(encoding=\"utf-8\").splitlines()\n        if line.strip()\n    ]\n",
+      "negative": "def read_nonblank(path):\n    return open(path).read().splitlines()\n",
+      "checks": "assert (\n    open(\"input.txt\", \"w\", encoding=\"utf-8\").write(\" café \\n\\n lab\\n\"),\n    s.read_nonblank(\"input.txt\"),\n)[-1] == [\"café\", \"lab\"], \"Trim and skip blanks\"\nassert raises(FileNotFoundError, s.read_nonblank, \"missing.txt\"), (\n    \"Do not hide missing files\"\n)\n",
+      "runtime": "",
+      "hint": "Open in w mode, specify UTF-8, and write a newline after every input line.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nfrom pathlib import Path\nPath(\"sample.txt\").write_text(\" first \\n\\nsecond\\n\", encoding=\"utf-8\")\nprint(answer.read_nonblank(\"sample.txt\"))\n"
+    },
+    "transfer": [
+      "Raise an exception inside a with block and check stream.closed.",
+      "Explain why w mode is dangerous on a real user file."
+    ]
+  },
+  {
+    "id": "decimal-money",
+    "outcome": "Use Decimal from strings and an explicit rounding policy for exact decimal amounts.",
+    "prerequisites": [
+      "files-and-contexts"
+    ],
+    "vocabulary": [
+      {
+        "term": "Decimal",
+        "meaning": "A decimal arithmetic type with explicit precision and rounding."
+      },
+      {
+        "term": "quantize",
+        "meaning": "Round to a specified decimal exponent."
+      },
+      {
+        "term": "rounding policy",
+        "meaning": "The rule used when a value lies between representable results."
+      }
+    ],
+    "example": "from decimal import Decimal, ROUND_HALF_UP\n\namount = Decimal(\"2.675\")\nrounded = amount.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_UP)\nprint(rounded)\nassert str(rounded) == \"2.68\"\n",
+    "explanation": [
+      "Binary floats cannot represent many decimal fractions exactly. Decimal represents decimal values according to a decimal context; construct it from a string to avoid importing a float's approximation.",
+      "quantize selects a decimal scale, and rounding specifies what happens at a tie. ROUND_HALF_UP is one policy, not a universal financial rule. Different jurisdictions and products may require different rules.",
+      "Keep units and boundaries explicit. This lab accepts amount text and returns fixed two-decimal text, so no caller has to guess whether a number represents dollars, cents, or a binary approximation."
+    ],
+    "prediction": {
+      "question": "What is rounded?",
+      "choices": [
+        "2.67",
+        "2.68",
+        "2.675"
+      ],
+      "correct": 1,
+      "explanation": "An exact decimal tie is rounded according to the explicit half-up policy."
+    },
+    "practice": {
+      "task": "Add two valid decimal strings exactly and return Decimal's string representation.",
+      "starter": "def decimal_sum(left, right):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def decimal_sum(left, right):\n    from decimal import Decimal\n\n    return str(Decimal(left) + Decimal(right))\n",
+      "alternative": "def decimal_sum(left, right):\n    import decimal\n\n    total = decimal.Decimal(left)\n    total += decimal.Decimal(right)\n    return str(total)\n",
+      "negative": "def decimal_sum(left, right):\n    return str(float(left) + float(right))\n",
+      "checks": "assert s.decimal_sum(\"0.1\", \"0.2\") == \"0.3\", \"Exact decimal sum\"\nassert s.decimal_sum(\"1.20\", \"2.30\") == \"3.50\", \"Preserve decimal scale\"\nassert s.decimal_sum(\"-1\", \"1\") == \"0\", \"Opposite values\"\n",
+      "runtime": "",
+      "hint": "Build Decimal directly from text and provide ROUND_HALF_UP to quantize.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.decimal_sum('0.1', '0.2'))\n"
+    },
+    "transfer": [
+      "Compare Decimal(\"0.1\") with Decimal(0.1).",
+      "State where a real pricing system should define its rounding policy."
+    ]
+  },
+  {
+    "id": "dates-with-timezones",
+    "outcome": "Parse timezone-aware ISO timestamps and normalize an instant to UTC.",
+    "prerequisites": [
+      "decimal-money"
+    ],
+    "vocabulary": [
+      {
+        "term": "aware datetime",
+        "meaning": "A date-time with a usable UTC offset."
+      },
+      {
+        "term": "UTC",
+        "meaning": "A common reference for representing instants."
+      },
+      {
+        "term": "offset",
+        "meaning": "The difference between local wall-clock time and UTC."
+      }
+    ],
+    "example": "from datetime import datetime, timezone\n\ninstant = datetime.fromisoformat(\"2026-01-01T09:00:00+02:00\")\nprint(instant.astimezone(timezone.utc).isoformat())\nassert instant.utcoffset().total_seconds() == 7200\n",
+    "explanation": [
+      "A datetime can be naive, with no usable timezone offset, or aware, identifying an instant relative to UTC. Do not silently mix the two; the same wall-clock text can refer to different instants.",
+      "datetime.fromisoformat parses supported ISO forms. astimezone(timezone.utc) converts an aware instant while preserving which moment it represents. replace(tzinfo=...) assigns metadata and is not a timezone conversion.",
+      "An offset such as +02:00 is not the same as a regional timezone with daylight-saving rules. This exercise accepts explicit offsets only; real scheduling needs a regional-zone policy."
+    ],
+    "prediction": {
+      "question": "Which UTC hour corresponds to 09:00 at +02:00?",
+      "choices": [
+        "11:00",
+        "09:00",
+        "07:00"
+      ],
+      "correct": 2,
+      "explanation": "Subtract the two-hour offset to represent the same instant in UTC."
+    },
+    "practice": {
+      "task": "Parse a valid ISO date and return normalized ISO date text. Invalid dates raise ValueError.",
+      "starter": "def iso_date(text):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def iso_date(text):\n    from datetime import date\n\n    return date.fromisoformat(text).isoformat()\n",
+      "alternative": "def iso_date(text):\n    import datetime\n\n    parsed = datetime.date.fromisoformat(text)\n    return str(parsed)\n",
+      "negative": "def iso_date(text):\n    return text\n",
+      "checks": "assert s.iso_date(\"2024-02-29\") == \"2024-02-29\", \"Leap day\"\nassert raises(ValueError, s.iso_date, \"2025-02-29\"), \"Invalid leap day\"\nassert raises(ValueError, s.iso_date, \"bad\"), \"Invalid text\"\n",
+      "runtime": "",
+      "hint": "Check utcoffset() before calling astimezone(timezone.utc).",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.iso_date('2024-02-29'))\n"
+    },
+    "transfer": [
+      "Normalize a timestamp that crosses midnight in UTC.",
+      "Explain why a recurring meeting needs more than a fixed offset."
+    ]
+  },
+  {
+    "id": "classes-and-state",
+    "outcome": "Create independent instances and update state through methods.",
+    "prerequisites": [
+      "dates-with-timezones"
+    ],
+    "vocabulary": [
+      {
+        "term": "instance",
+        "meaning": "One object created from a class."
+      },
+      {
+        "term": "self",
+        "meaning": "The instance passed as the first method argument."
+      },
+      {
+        "term": "invariant",
+        "meaning": "A rule that remains true after every valid operation."
+      }
+    ],
+    "example": "class Counter:\n    def __init__(self):\n        self.value = 0\n\n    def increment(self):\n        self.value += 1\n        return self.value\n\n\ncounter = Counter()\nprint(counter.increment())\nassert Counter().value == 0\n",
+    "explanation": [
+      "A class defines how instances are created and what operations they provide. __init__ initializes a new instance; self refers to the instance receiving a method call.",
+      "Assign per-instance state through self. A mutable class attribute would instead be shared by instances, often causing one learner, account, or request to affect another.",
+      "Methods should represent meaningful domain operations. Keep an invariant true after every public operation instead of letting callers coordinate several fragile assignments."
+    ],
+    "prediction": {
+      "question": "What does counter.increment() return?",
+      "choices": [
+        "0",
+        "1",
+        "None"
+      ],
+      "correct": 1,
+      "explanation": "The method updates this instance from zero to one and returns its new value."
+    },
+    "practice": {
+      "task": "Implement Box(value) with a public value and replace(value) that updates and returns the new value.",
+      "starter": "class Box:\n    pass\n",
+      "solution": "class Box:\n    def __init__(self, value):\n        self.value = value\n\n    def replace(self, value):\n        self.value = value\n        return value\n",
+      "alternative": "class Box:\n    def __init__(self, value):\n        self.replace(value)\n\n    def replace(self, value):\n        self.value = value\n        return self.value\n",
+      "negative": "class Box:\n    def __init__(self, value):\n        self.value = value\n\n    def replace(self, value):\n        return value\n",
+      "checks": "box = s.Box(1)\nassert box.replace(2) == 2 and box.value == 2, \"Update the instance\"\nassert s.Box(9).value == 9, \"Independent state\"\n",
+      "runtime": "",
+      "hint": "Initialize self.value in __init__ and update that same attribute in increment.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nbox = answer.Box(\"first\")\nprint(box.replace(\"second\"))\nprint(box.value)\n"
+    },
+    "transfer": [
+      "Create two counters and alternate calls.",
+      "Explain why a shared list declared on a class is different from an instance field."
+    ]
+  },
+  {
+    "id": "dataclasses-and-values",
+    "outcome": "Use annotations and dataclasses to create explicit immutable records.",
+    "prerequisites": [
+      "classes-and-state"
+    ],
+    "vocabulary": [
+      {
+        "term": "dataclass",
+        "meaning": "A class decorator generating record-oriented methods from fields."
+      },
+      {
+        "term": "annotation",
+        "meaning": "Metadata expressing the intended type of a name."
+      },
+      {
+        "term": "value object",
+        "meaning": "A record compared by its contents rather than its identity."
+      }
+    ],
+    "example": "from dataclasses import dataclass\n\n\n@dataclass(frozen=True)\nclass Point:\n    x: int\n    y: int\n\n\nprint(Point(1, 2) == Point(1, 2))\nassert Point(1, 2).x == 1\n",
+    "explanation": [
+      "@dataclass reads annotated fields and generates methods such as __init__, __repr__, and equality. The decorator runs after the class is defined. An annotation describes intent; it does not validate a runtime value.",
+      "frozen=True rejects ordinary field reassignment. It is useful for value objects, but it is not deep immutability: a list stored inside a frozen record can still change.",
+      "Choose a mutable object for a lifecycle with controlled changes, and a value record for a fact that should be replaced as a whole. Domain validation still belongs at an explicit boundary."
+    ],
+    "prediction": {
+      "question": "Why are the two Point values equal?",
+      "choices": [
+        "They are the same object",
+        "Python ignores the fields",
+        "The dataclass compares field values"
+      ],
+      "correct": 2,
+      "explanation": "Generated dataclass equality compares corresponding fields of the same class."
+    },
+    "practice": {
+      "task": "Create a frozen dataclass Point with integer-annotated x and y fields.",
+      "starter": "class Point:\n    pass\n",
+      "solution": "from dataclasses import dataclass\n\n\n@dataclass(frozen=True)\nclass Point:\n    x: int\n    y: int\n",
+      "alternative": "import dataclasses\n\n\n@dataclasses.dataclass(frozen=True)\nclass Point:\n    x: int\n    y: int\n",
+      "negative": "from dataclasses import dataclass\n\n\n@dataclass\nclass Point:\n    x: int\n    y: int\n",
+      "checks": "import dataclasses\n\np = s.Point(1, 2)\nassert dataclasses.is_dataclass(p) and p == s.Point(1, 2), \"Record equality\"\nassert raises(dataclasses.FrozenInstanceError, setattr, p, \"x\", 3), \"Frozen field\"\n",
+      "runtime": "",
+      "hint": "Use @dataclass(frozen=True) and annotate both fields before defining the method.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.Point(1, 2))\nprint(answer.Point(1, 2) == answer.Point(1, 2))\n"
+    },
+    "transfer": [
+      "Put a list in a frozen dataclass and test its mutability.",
+      "Explain why annotations alone do not reject a string price."
+    ]
+  },
+  {
+    "id": "explicit-state-transitions",
+    "outcome": "Express a finite workflow and reject transitions outside the contract.",
+    "prerequisites": [
+      "dataclasses-and-values"
+    ],
+    "vocabulary": [
+      {
+        "term": "state machine",
+        "meaning": "A set of states and allowed transitions."
+      },
+      {
+        "term": "transition",
+        "meaning": "A permitted change caused by an event."
+      },
+      {
+        "term": "domain error",
+        "meaning": "A failure defined by the rules of the problem."
+      }
+    ],
+    "example": "def next_state(state, action):\n    transitions = {(\"draft\", \"submit\"): \"review\", (\"review\", \"approve\"): \"published\"}\n    if (state, action) not in transitions:\n        raise ValueError(\"invalid transition\")\n    return transitions[state, action]\n\n\nprint(next_state(\"draft\", \"submit\"))\n",
+    "explanation": [
+      "A workflow has named states and events that may move it between them. A transition table makes allowed combinations visible instead of spreading rules across unrelated boolean flags.",
+      "A tuple is a suitable dictionary key for a pair of immutable strings. Looking up (state, action) expresses one rule directly. A missing transition is a domain error, not permission to keep going.",
+      "Validate the current state and event together. Without this boundary, a duplicate event or a stale client can skip required review steps. Persistence and concurrency would need additional guarantees in a real service."
+    ],
+    "prediction": {
+      "question": "What follows draft + submit?",
+      "choices": [
+        "review",
+        "published",
+        "draft"
+      ],
+      "correct": 0,
+      "explanation": "The table explicitly maps that pair to review."
+    },
+    "practice": {
+      "task": "Return True only for the exact state \"approved\".",
+      "starter": "def can_publish(state):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def can_publish(state):\n    return state == \"approved\"\n",
+      "alternative": "def can_publish(state):\n    if state == \"approved\":\n        return True\n    return False\n",
+      "negative": "def can_publish(state):\n    return state != \"draft\"\n",
+      "checks": "assert s.can_publish(\"approved\") is True, \"Approved can publish\"\nassert s.can_publish(\"draft\") is False, \"Draft cannot\"\nassert s.can_publish(\"unknown\") is False, \"Unknown cannot\"\n",
+      "runtime": "",
+      "hint": "Map each allowed pair explicitly and raise ValueError for missing pairs.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.can_publish('approved'))\n"
+    },
+    "transfer": [
+      "Draw the state graph and identify terminal states.",
+      "Explain why two concurrent transitions require more than this pure function."
+    ]
+  },
+  {
+    "id": "properties-and-invariants",
+    "outcome": "Expose readable state while keeping updates behind a validating operation.",
+    "prerequisites": [
+      "explicit-state-transitions"
+    ],
+    "vocabulary": [
+      {
+        "term": "property",
+        "meaning": "A descriptor exposing controlled attribute access."
+      },
+      {
+        "term": "encapsulation",
+        "meaning": "Keep state changes behind meaningful operations."
+      },
+      {
+        "term": "atomic failure",
+        "meaning": "A rejected operation leaves prior state unchanged."
+      }
+    ],
+    "example": "class Wallet:\n    def __init__(self):\n        self._balance = 0\n\n    @property\n    def balance(self):\n        return self._balance\n\n    def deposit(self, cents):\n        if cents <= 0:\n            raise ValueError(\"positive cents required\")\n        self._balance += cents\n\n\nwallet = Wallet()\nwallet.deposit(100)\nprint(wallet.balance)\n",
+    "explanation": [
+      "A property presents a method as attribute access. A read-only property without a setter prevents ordinary assignment to that public attribute. The underscore in _balance signals internal ownership by convention; it is not secrecy.",
+      "Validate before changing state. If a withdrawal would overdraw an account, reject it while keeping the previous balance intact. Partial state changes followed by an exception break trust in the object.",
+      "An object with money-like state should use explicit units and well-defined operations. This exercise models integer cents in memory; production financial systems require durable transactions and audit records as well."
+    ],
+    "prediction": {
+      "question": "After deposit(100), what is wallet.balance?",
+      "choices": [
+        "None",
+        "100",
+        "0"
+      ],
+      "correct": 1,
+      "explanation": "The validated operation updated the internal balance, and the property returns it."
+    },
+    "practice": {
+      "task": "Create Celsius(value) with a read-only value property; reject values below -273.15 in the constructor.",
+      "starter": "class Celsius:\n    pass\n",
+      "solution": "class Celsius:\n    def __init__(self, value):\n        if value < -273.15:\n            raise ValueError(\"below absolute zero\")\n        self._value = value\n\n    @property\n    def value(self):\n        return self._value\n",
+      "alternative": "class Celsius:\n    def __init__(self, value):\n        if not value >= -273.15:\n            raise ValueError(\"invalid temperature\")\n        self._value = value\n\n    value = property(lambda self: self._value)\n",
+      "negative": "class Celsius:\n    def __init__(self, value):\n        self.value = value\n",
+      "checks": "assert s.Celsius(-273.15).value == -273.15, \"Boundary is valid\"\nassert raises(ValueError, s.Celsius, -274), \"Reject below boundary\"\nassert raises(AttributeError, setattr, s.Celsius(20), \"value\", 30), \"Read-only property\"\n",
+      "runtime": "",
+      "hint": "Validate cents before changing _balance, and expose balance through @property.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\ntemperature = answer.Celsius(20)\nprint(temperature.value)\n"
+    },
+    "transfer": [
+      "Test that every rejected operation preserves the balance.",
+      "Discuss where a database transaction would be required."
+    ]
+  },
+  {
+    "id": "inject-dependencies",
+    "outcome": "Accept a collaborator from the caller and test behavior with an in-memory fake.",
+    "prerequisites": [
+      "properties-and-invariants"
+    ],
+    "vocabulary": [
+      {
+        "term": "dependency injection",
+        "meaning": "Supply a collaborator instead of constructing it internally."
+      },
+      {
+        "term": "fake",
+        "meaning": "A simple working substitute used for a test."
+      },
+      {
+        "term": "port",
+        "meaning": "A small interface describing a needed external operation."
+      }
+    ],
+    "example": "def notify(message, send):\n    send(message)\n    return \"sent\"\n\n\nmessages = []\nprint(notify(\"ready\", messages.append))\nassert messages == [\"ready\"]\n",
+    "explanation": [
+      "A dependency is something a function needs to do its work, such as sending a message or reading a repository. Passing it as an argument makes the boundary visible and avoids hardcoding a global service.",
+      "An in-memory fake can implement the same small operation and record calls. This tests your policy without network requests, credentials or a live provider. It does not prove the real provider integration works.",
+      "Keep validation ahead of delivery so invalid work produces no side effects. Let unexpected delivery failures propagate unless your API has a documented retry or compensation policy."
+    ],
+    "prediction": {
+      "question": "What is printed by notify?",
+      "choices": [
+        "sent",
+        "ready",
+        "None"
+      ],
+      "correct": 0,
+      "explanation": "The fake records ready while the policy returns sent."
+    },
+    "practice": {
+      "task": "For nonempty text call sink(message) once and return True. Empty text raises ValueError without delivery.",
+      "starter": "def publish(message, sink):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def publish(message, sink):\n    if not message:\n        raise ValueError(\"message required\")\n    sink(message)\n    return True\n",
+      "alternative": "def publish(message, sink):\n    if message == \"\":\n        raise ValueError(\"empty message\")\n    sink(message)\n    return True\n",
+      "negative": "def publish(message, sink):\n    sink(message)\n    return True\n",
+      "checks": "assert ((calls := []), s.publish(\"ready\", calls.append), calls)[1:] == (\n    True,\n    [\"ready\"],\n), \"One delivery\"\nassert ((calls := []), raises(ValueError, s.publish, \"\", calls.append), calls)[1:] == (\n    True,\n    [],\n), \"Validate before delivery\"\n",
+      "runtime": "",
+      "hint": "Validate both inputs, build one message, then call the injected send function.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nmessages = []\nprint(answer.publish(\"ready\", messages.append))\nprint(messages)\n"
+    },
+    "transfer": [
+      "Inject a collaborator that raises and observe propagation.",
+      "Explain what a separate provider contract test would verify."
+    ]
+  },
+  {
+    "id": "copying-nested-data",
+    "outcome": "Avoid mutating nested caller data and understand shallow versus deep copies.",
+    "prerequisites": [
+      "inject-dependencies"
+    ],
+    "vocabulary": [
+      {
+        "term": "shallow copy",
+        "meaning": "A new outer container referencing the same nested values."
+      },
+      {
+        "term": "deep copy",
+        "meaning": "Recursively copy nested objects when supported."
+      },
+      {
+        "term": "ownership",
+        "meaning": "Responsibility for deciding whether a value may change."
+      }
+    ],
+    "example": "import copy\n\noriginal = {\"tags\": [\"a\"]}\nclone = copy.deepcopy(original)\nclone[\"tags\"].append(\"b\")\nprint(original[\"tags\"])\nassert original[\"tags\"] == [\"a\"]\n",
+    "explanation": [
+      "A dictionary copy duplicates the outer mapping but keeps references to nested values. Mutating a nested list in that shallow copy still changes the original list.",
+      "copy.deepcopy recursively copies ordinary nested structures while tracking already-seen objects. It is not a general transaction or a safe way to clone arbitrary resources such as open sockets.",
+      "Often the clearest solution is to explicitly reconstruct the small part of a structure you own. Document which values may be shared and which must be independent."
+    ],
+    "prediction": {
+      "question": "What is original[\"tags\"] after modifying clone?",
+      "choices": [
+        "[\"a\", \"b\"]",
+        "[\"b\"]",
+        "[\"a\"]"
+      ],
+      "correct": 2,
+      "explanation": "deepcopy created an independent nested list."
+    },
+    "practice": {
+      "task": "Copy a list of flat dictionaries so later changes to a copied row do not change the original.",
+      "starter": "def copy_rows(rows):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def copy_rows(rows):\n    return [dict(row) for row in rows]\n",
+      "alternative": "def copy_rows(rows):\n    from copy import deepcopy\n\n    return deepcopy(rows)\n",
+      "negative": "def copy_rows(rows):\n    return list(rows)\n",
+      "checks": "assert s.copy_rows([{\"x\": 1}]) == [{\"x\": 1}], \"Same contents\"\nassert ((rows := [{\"x\": 1}]), (copied := s.copy_rows(rows)), copied[0] is not rows[0])[\n    -1\n], \"Independent row\"\nassert s.copy_rows([]) == [], \"Empty rows\"\n",
+      "runtime": "",
+      "hint": "Copy the tags list explicitly; copying only the dictionary is insufficient.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.copy_rows([{'x': 1}]))\n"
+    },
+    "transfer": [
+      "Replace deepcopy with copy and observe aliasing.",
+      "Explain why copying an object cannot roll back an external side effect."
+    ]
+  },
+  {
+    "id": "closures-and-state",
+    "outcome": "Return a function that retains controlled state with nonlocal.",
+    "prerequisites": [
+      "copying-nested-data"
+    ],
+    "vocabulary": [
+      {
+        "term": "closure",
+        "meaning": "A function retaining its enclosing lexical environment."
+      },
+      {
+        "term": "lexical scope",
+        "meaning": "Name lookup based on where code is defined."
+      },
+      {
+        "term": "nonlocal",
+        "meaning": "Rebind a name in an enclosing function scope."
+      }
+    ],
+    "example": "def multiplier(factor):\n    def apply(value):\n        return value * factor\n\n    return apply\n\n\ntriple = multiplier(3)\nprint(triple(4))\nassert triple(2) == 6\n",
+    "explanation": [
+      "A closure is a function that retains references to names from an enclosing function scope. multiplier returns apply, and each call to multiplier creates a separate environment.",
+      "Reading a captured variable needs no special keyword. Rebinding a captured local name requires nonlocal; otherwise assignment creates a new local binding in the inner function.",
+      "Closures are useful for small configurable behaviors, but hidden mutable state can complicate concurrency. Use an explicit object when the lifecycle or operations become substantial."
+    ],
+    "prediction": {
+      "question": "What does triple(4) return?",
+      "choices": [
+        "7",
+        "12",
+        "4"
+      ],
+      "correct": 1,
+      "explanation": "The returned apply function retains factor = 3."
+    },
+    "practice": {
+      "task": "Return a function that prepends prefix to its text argument.",
+      "starter": "def make_prefixer(prefix):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def make_prefixer(prefix):\n    def apply(text):\n        return prefix + text\n\n    return apply\n",
+      "alternative": "def make_prefixer(prefix):\n    return lambda text: f\"{prefix}{text}\"\n",
+      "negative": "def make_prefixer(prefix):\n    return lambda text: text\n",
+      "checks": "assert s.make_prefixer(\"lab:\")(\"one\") == \"lab:one\", \"Capture prefix\"\nassert s.make_prefixer(\"\")(\"x\") == \"x\", \"Empty prefix\"\nassert s.make_prefixer(\"a\")(\"b\") == \"ab\", \"Apply supplied text\"\n",
+      "runtime": "",
+      "hint": "Keep value in the enclosing function and declare nonlocal before rebinding it.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprefix = answer.make_prefixer(\"lab:\")\nprint(prefix(\"one\"))\n"
+    },
+    "transfer": [
+      "Create two different multiplier functions.",
+      "Explain why nonlocal is unnecessary when only reading factor."
+    ]
+  },
+  {
+    "id": "decorators-and-metadata",
+    "outcome": "Write a decorator that forwards arguments and preserves function metadata.",
+    "prerequisites": [
+      "closures-and-state"
+    ],
+    "vocabulary": [
+      {
+        "term": "decorator",
+        "meaning": "A callable transforming a function or class definition."
+      },
+      {
+        "term": "wrapper",
+        "meaning": "A replacement function that delegates to an underlying function."
+      },
+      {
+        "term": "metadata",
+        "meaning": "Descriptive information such as name and documentation."
+      }
+    ],
+    "example": "from functools import wraps\n\n\ndef traced(function):\n    @wraps(function)\n    def wrapper(*args, **kwargs):\n        return function(*args, **kwargs)\n\n    return wrapper\n\n\n@traced\ndef add(a, b):\n    return a + b\n\n\nprint(add(2, 3))\nassert add.__name__ == \"add\"\n",
+    "explanation": [
+      "A decorator receives a function and returns a replacement. @traced above a definition is equivalent to assigning add = traced(add) after defining add.",
+      "*args collects positional arguments into a tuple; **kwargs collects named arguments into a dictionary. Forward both when a wrapper should support the original calling interface.",
+      "functools.wraps copies useful metadata and sets __wrapped__ for inspection. A decorator should state whether it changes return values, exceptions, timing, or side effects; transparent wrappers should not silently change these."
+    ],
+    "prediction": {
+      "question": "What is add.__name__ after wrapping?",
+      "choices": [
+        "wrapper",
+        "traced",
+        "add"
+      ],
+      "correct": 2,
+      "explanation": "wraps preserves the original function metadata."
+    },
+    "practice": {
+      "task": "Implement identity_decorator(function), forwarding all arguments and returning the original result while preserving metadata.",
+      "starter": "def identity_decorator(function):\n    return None\n",
+      "solution": "from functools import wraps\n\n\ndef identity_decorator(function):\n    @wraps(function)\n    def wrapper(*args, **kwargs):\n        return function(*args, **kwargs)\n\n    return wrapper\n",
+      "alternative": "import functools\n\n\ndef identity_decorator(function):\n    def wrapper(*args, **kwargs):\n        return function(*args, **kwargs)\n\n    return functools.wraps(function)(wrapper)\n",
+      "negative": "def identity_decorator(function):\n    def wrapper(*args):\n        return function(*args)\n\n    return wrapper\n",
+      "checks": "@s.identity_decorator\ndef add(a, *, b=1):\n    return a + b\n\n\nassert add(2, b=3) == 5, \"Forward keywords\"\nassert add.__name__ == \"add\", \"Preserve name\"\n",
+      "runtime": "",
+      "hint": "Use a factory, an inner decorator, and an @wraps wrapper that accepts *args and **kwargs.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\n@answer.identity_decorator\ndef add(left, right):\n    return left + right\nprint(add(2, 3))\nprint(add.__name__)\n"
+    },
+    "transfer": [
+      "Inspect __wrapped__ and the function signature.",
+      "Decide whether logging before a failing call is part of your contract."
+    ]
+  },
+  {
+    "id": "custom-context-managers",
+    "outcome": "Use contextmanager and finally so cleanup runs on success and failure.",
+    "prerequisites": [
+      "decorators-and-metadata"
+    ],
+    "vocabulary": [
+      {
+        "term": "finally",
+        "meaning": "A block that runs when control leaves try, including on failure."
+      },
+      {
+        "term": "resource lifetime",
+        "meaning": "The interval between acquiring and releasing a resource."
+      },
+      {
+        "term": "propagation",
+        "meaning": "Allow a failure to continue to the caller."
+      }
+    ],
+    "example": "from contextlib import contextmanager\n\n\n@contextmanager\ndef session(events):\n    events.append(\"open\")\n    try:\n        yield \"resource\"\n    finally:\n        events.append(\"close\")\n\n\nevents = []\nwith session(events) as value:\n    events.append(value)\nprint(events)\nassert events == [\"open\", \"resource\", \"close\"]\n",
+    "explanation": [
+      "@contextmanager adapts a generator into a context manager. Code before yield performs setup, the yielded value becomes the as target, and code after yield handles exit.",
+      "Put cleanup in finally so it runs when the body raises. Without finally, an exception injected at yield can skip the code that releases your resource.",
+      "A context manager may deliberately handle an exception, but this lab must propagate it. Silently swallowing failures makes cleanup appear successful while the actual work was lost."
+    ],
+    "prediction": {
+      "question": "What is events after the successful with block?",
+      "choices": [
+        "[\"open\", \"resource\", \"close\"]",
+        "[\"open\", \"close\"]",
+        "[\"resource\"]"
+      ],
+      "correct": 0,
+      "explanation": "Setup runs first, then the body, then finally performs cleanup."
+    },
+    "practice": {
+      "task": "Implement bracket(events) as a context manager appending \"open\" on entry and \"close\" on every exit.",
+      "starter": "def bracket(events):\n    return None\n",
+      "solution": "from contextlib import contextmanager\n\n\n@contextmanager\ndef bracket(events):\n    events.append(\"open\")\n    try:\n        yield\n    finally:\n        events.append(\"close\")\n",
+      "alternative": "class bracket:\n    def __init__(self, events):\n        self.events = events\n\n    def __enter__(self):\n        self.events.append(\"open\")\n\n    def __exit__(self, *args):\n        self.events.append(\"close\")\n        return False\n",
+      "negative": "from contextlib import contextmanager\n\n\n@contextmanager\ndef bracket(events):\n    events.append(\"open\")\n    yield\n    events.append(\"close\")\n",
+      "checks": "events = []\ntry:\n    with s.bracket(events):\n        raise ValueError(\"expected\")\nexcept ValueError:\n    pass\nelse:\n    raise AssertionError(\"Do not suppress exceptions\")\nassert events == [\"open\", \"close\"], \"Always release\"\n",
+      "runtime": "",
+      "hint": "Place yield inside try and cleanup inside finally.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nevents = []\nwith answer.bracket(events):\n    print(\"inside\")\nprint(events)\n"
+    },
+    "transfer": [
+      "Raise inside the body and inspect the events.",
+      "Explain how returning True from __exit__ changes exception handling."
+    ]
+  },
+  {
+    "id": "iterator-protocol",
+    "outcome": "Connect iter, next and StopIteration to the behavior of a for loop.",
+    "prerequisites": [
+      "custom-context-managers"
+    ],
+    "vocabulary": [
+      {
+        "term": "iterable",
+        "meaning": "An object from which an iterator can be requested."
+      },
+      {
+        "term": "iterator",
+        "meaning": "An object yielding values through next()."
+      },
+      {
+        "term": "exhaustion",
+        "meaning": "The permanent end of a particular traversal."
+      }
+    ],
+    "example": "class Countdown:\n    def __init__(self, start):\n        self.current = start\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.current <= 0:\n            raise StopIteration\n        result = self.current\n        self.current -= 1\n        return result\n\n\nprint(list(Countdown(3)))\n",
+    "explanation": [
+      "An iterable can produce an iterator through iter(value). An iterator provides __next__ and returns itself from __iter__. for repeatedly calls next until StopIteration signals completion.",
+      "A single-use iterator owns traversal state. Once exhausted, it should remain exhausted. A reusable collection usually returns a new iterator for each traversal instead of storing one shared cursor.",
+      "Generators implement this protocol for you and are usually shorter. Implementing it explicitly helps when an object needs a specialized stateful interface."
+    ],
+    "prediction": {
+      "question": "What does list(Countdown(3)) produce?",
+      "choices": [
+        "[0,1,2]",
+        "[3,2,1]",
+        "[3,2,1,0]"
+      ],
+      "correct": 1,
+      "explanation": "Each next call decrements state; the zero state raises StopIteration."
+    },
+    "practice": {
+      "task": "Implement One(value) as an iterator yielding exactly one value, then remaining exhausted.",
+      "starter": "class One:\n    pass\n",
+      "solution": "class One:\n    def __init__(self, value):\n        self.value = value\n        self.done = False\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.done:\n            raise StopIteration\n        self.done = True\n        return self.value\n",
+      "alternative": "class One:\n    def __init__(self, value):\n        self.iterator = iter([value])\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        return next(self.iterator)\n",
+      "negative": "class One:\n    def __init__(self, value):\n        self.value = value\n\n    def __iter__(self):\n        return iter([self.value])\n",
+      "checks": "item = s.One(None)\nassert iter(item) is item, \"Iterator returns itself\"\nassert next(item) is None, \"None is a real value\"\nassert raises(StopIteration, next, item), \"Stop after one\"\nassert raises(StopIteration, next, item), \"Stay exhausted\"\n",
+      "runtime": "",
+      "hint": "Implement __iter__ returning self and __next__ raising StopIteration when no values remain.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nitem = answer.One(\"ready\")\nprint(list(item))\nprint(list(item))\n"
+    },
+    "transfer": [
+      "Compare an iterator with a reusable range object.",
+      "Implement the same sequence as a generator and compare readability."
+    ]
+  },
+  {
+    "id": "async-and-await",
+    "outcome": "Await coroutines and gather their results in a real event loop.",
+    "prerequisites": [
+      "iterator-protocol"
+    ],
+    "vocabulary": [
+      {
+        "term": "coroutine",
+        "meaning": "A computation that can suspend at await points."
+      },
+      {
+        "term": "event loop",
+        "meaning": "The scheduler advancing ready asynchronous tasks."
+      },
+      {
+        "term": "concurrency",
+        "meaning": "Overlapping progress of multiple tasks, not necessarily parallel CPU execution."
+      }
+    ],
+    "example": "import asyncio\n\n\nasync def double(value):\n    await asyncio.sleep(0)\n    return value * 2\n\n\nasync def main():\n    return await asyncio.gather(double(2), double(3))\n\n\nprint(asyncio.run(main()))\n",
+    "explanation": [
+      "async def defines a coroutine function. Calling it creates a coroutine object; its body runs when it is awaited or scheduled by an event loop. await allows another task to run while this one waits.",
+      "asyncio.gather schedules awaitables together and returns results in input order, even if tasks finish in another order. asyncio.run creates and closes an event loop around a top-level coroutine.",
+      "Concurrency is not automatic CPU parallelism. Blocking synchronous work blocks the event loop; real I/O integrations need nonblocking clients and cancellation policies. These exercises use in-memory coroutines and do not contact the network."
+    ],
+    "prediction": {
+      "question": "In what order are results returned?",
+      "choices": [
+        "[6,4]",
+        "Completion order only",
+        "[4,6]"
+      ],
+      "correct": 2,
+      "explanation": "gather preserves the order of the input awaitables."
+    },
+    "practice": {
+      "task": "Define async double_async(value), returning twice the input when awaited.",
+      "starter": "async def double_async(value):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "async def double_async(value):\n    import asyncio\n\n    await asyncio.sleep(0)\n    return value * 2\n",
+      "alternative": "async def double_async(value):\n    return value + value\n",
+      "negative": "async def double_async(value):\n    return value\n",
+      "checks": "assert __import__(\"inspect\").iscoroutinefunction(s.double_async), (\n    \"Define coroutine function\"\n)\nassert __import__(\"asyncio\").run(s.double_async(3)) == 6, \"Await computed result\"\nassert __import__(\"asyncio\").run(s.double_async(0)) == 0, \"Zero result\"\n",
+      "runtime": "",
+      "hint": "Use async def and await asyncio.gather over the transform calls.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nimport asyncio\nprint(asyncio.run(answer.double_async(3)))\n"
+    },
+    "transfer": [
+      "Explain why replacing async I/O with a blocking call stalls other tasks.",
+      "Discuss how to cancel unfinished work if one operation fails."
+    ]
+  },
+  {
+    "id": "type-hints-and-contracts",
+    "outcome": "Annotate a small API while validating the runtime boundary explicitly.",
+    "prerequisites": [
+      "async-and-await"
+    ],
+    "vocabulary": [
+      {
+        "term": "type hint",
+        "meaning": "Metadata describing an intended type contract."
+      },
+      {
+        "term": "static analysis",
+        "meaning": "Inspect code without executing its ordinary behavior."
+      },
+      {
+        "term": "runtime validation",
+        "meaning": "Check actual incoming values during execution."
+      }
+    ],
+    "example": "def add(left: int, right: int) -> int:\n    return left + right\n\n\nprint(add(2, 3))\nassert add(\"a\", \"b\") == \"ab\"\n",
+    "explanation": [
+      "Type annotations describe an intended contract for readers, editors and static analyzers. CPython does not generally enforce them when a function is called; the worked example still concatenates two strings.",
+      "Use runtime validation at untrusted boundaries and static analysis during development. They solve different problems. PyDojo executes behavioral checks. Its checks validate actual results and failure policies.",
+      "A public API should say which values it accepts, what it returns, and what happens on failure. Reject bool explicitly when the contract requires exact integer counts, because bool inherits from int."
+    ],
+    "prediction": {
+      "question": "What happens when the annotated add receives two strings?",
+      "choices": [
+        "It concatenates them",
+        "Python rejects them before the call",
+        "The annotations are deleted"
+      ],
+      "correct": 0,
+      "explanation": "Annotations alone do not change the runtime + operation."
+    },
+    "practice": {
+      "task": "Annotate value: object and return: bool. Return whether a value is an exact nonnegative int, excluding bool.",
+      "starter": "def is_count(value: object) -> bool:\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def is_count(value: object) -> bool:\n    return type(value) is int and value >= 0\n",
+      "alternative": "def is_count(value: object) -> bool:\n    if type(value) is not int:\n        return False\n    return value >= 0\n",
+      "negative": "def is_count(value: object) -> bool:\n    return isinstance(value, int) and value >= 0\n",
+      "checks": "assert s.is_count(0) is True and s.is_count(2) is True, \"Valid counts\"\nassert all(s.is_count(value) is False for value in [True, \"2\", -1, 2.0]), (\n    \"Reject other types\"\n)\nassert __import__(\"typing\").get_type_hints(s.is_count)[\"return\"] is bool, (\n    \"Annotate the result\"\n)\n",
+      "runtime": "",
+      "hint": "Check type(value) is int, validate the sign, and add -> int to the signature.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.is_count(0))\n"
+    },
+    "transfer": [
+      "Explain which errors a static checker could find before execution.",
+      "Discuss validation for nested external records."
+    ]
+  },
+  {
+    "id": "project-log-report",
+    "outcome": "Combine parsing, filtering, aggregation and deterministic output in a small report.",
+    "prerequisites": [
+      "type-hints-and-contracts"
+    ],
+    "vocabulary": [
+      {
+        "term": "deterministic",
+        "meaning": "The same input produces the same observable result."
+      },
+      {
+        "term": "partition",
+        "meaning": "Split text once, preserving whether a separator existed."
+      },
+      {
+        "term": "observability",
+        "meaning": "Evidence that helps explain a system's behavior."
+      }
+    ],
+    "example": "def summarize(lines):\n    counts = {}\n    for line in lines:\n        level, separator, message = line.partition(\":\")\n        if separator and level in {\"INFO\", \"ERROR\"}:\n            counts[level] = counts.get(level, 0) + 1\n    return counts\n\n\nprint(summarize([\"INFO:ready\", \"bad\", \"ERROR:failed\"]))\n",
+    "explanation": [
+      "A useful report starts with a precise input contract. Here a record is LEVEL:message, the first colon separates fields, and only INFO, WARN and ERROR are recognized. The message itself may contain colons.",
+      "Separate parsing from aggregation mentally: decide whether a line is valid, normalize the level, then increment its count. Malformed lines are intentionally ignored in this project, while a real operational tool may need a rejected-row count.",
+      "Deterministic output makes reports easier to test and compare. Always return all three known levels with zero counts when absent. This project tests behavior, not whether you used one particular implementation."
+    ],
+    "prediction": {
+      "question": "Why does ERROR:network:timeout stay one record?",
+      "choices": [
+        "Every colon starts a record",
+        "partition splits only at the first colon",
+        "The extra text is discarded"
+      ],
+      "correct": 1,
+      "explanation": "partition preserves the rest of the message after the first separator."
+    },
+    "practice": {
+      "task": "Return (normalized_level, trimmed_message) using the first colon, or None if colon or message is absent.",
+      "starter": "def split_record(line):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def split_record(line):\n    level, separator, message = line.partition(\":\")\n    if not separator or not message.strip():\n        return None\n    return level.strip().upper(), message.strip()\n",
+      "alternative": "def split_record(line):\n    parts = line.split(\":\", 1)\n    if len(parts) != 2 or not parts[1].strip():\n        return None\n    return parts[0].strip().upper(), parts[1].strip()\n",
+      "negative": "def split_record(line):\n    return tuple(line.split(\":\"))\n",
+      "checks": "assert s.split_record(\" info : a:b \") == (\"INFO\", \"a:b\"), \"Split only once\"\nassert s.split_record(\"bad\") is None, \"Require separator\"\nassert s.split_record(\"INFO: \") is None, \"Require message\"\n",
+      "runtime": "",
+      "hint": "Initialize all known counters, split only once, then validate before incrementing.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.split_record(' info : a:b '))\n"
+    },
+    "transfer": [
+      "Add a rejected-record count without changing valid counts.",
+      "Discuss how a streaming report would avoid retaining every log line."
+    ]
+  },
+  {
+    "id": "project-stock-reservation",
+    "outcome": "Plan a batch update and reject it without partially mutating caller state.",
+    "prerequisites": [
+      "project-log-report"
+    ],
+    "vocabulary": [
+      {
+        "term": "atomicity",
+        "meaning": "The operation succeeds as a whole or has no observable partial effect."
+      },
+      {
+        "term": "reservation",
+        "meaning": "A request to set aside available quantity."
+      },
+      {
+        "term": "concurrency control",
+        "meaning": "Coordinate overlapping operations on shared state."
+      }
+    ],
+    "example": "def decrement_copy(stock, sku):\n    if stock.get(sku, 0) < 1:\n        raise ValueError(\"out of stock\")\n    result = dict(stock)\n    result[sku] -= 1\n    return result\n\n\nstock = {\"book\": 2}\nprint(decrement_copy(stock, \"book\"))\nassert stock == {\"book\": 2}\n",
+    "explanation": [
+      "A multi-item reservation is one business operation. If the second item is unavailable, consuming the first item and then raising leaves a partial result that violates the operation's promise.",
+      "Work on a private copy and validate every requested quantity. Returning the new stock only after all operations succeed provides atomic failure for this pure in-memory interface.",
+      "This is not a concurrency-safe inventory service. Two workers reading the same database snapshot still need a transaction, conditional update or other coordination. Name that limitation when explaining the design."
+    ],
+    "prediction": {
+      "question": "What happens to stock after decrement_copy?",
+      "choices": [
+        "It becomes zero",
+        "It loses book",
+        "It remains unchanged"
+      ],
+      "correct": 2,
+      "explanation": "The function returns a changed copy and leaves the input mapping intact."
+    },
+    "practice": {
+      "task": "Return whether requested is an exact positive int and no greater than available.",
+      "starter": "def can_reserve(available, requested):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def can_reserve(available, requested):\n    return type(requested) is int and requested > 0 and available >= requested\n",
+      "alternative": "def can_reserve(available, requested):\n    if type(requested) is not int or requested <= 0:\n        return False\n    return requested <= available\n",
+      "negative": "def can_reserve(available, requested):\n    return available >= requested\n",
+      "checks": "assert s.can_reserve(3, 3) is True, \"Exact stock is enough\"\nassert s.can_reserve(2, 3) is False, \"Insufficient stock\"\nassert all(s.can_reserve(3, q) is False for q in [0, -1, True, 1.2]), (\n    \"Invalid quantities\"\n)\n",
+      "runtime": "",
+      "hint": "Change only a fresh copy and reject every invalid quantity before returning it.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.can_reserve(3, 3))\n"
+    },
+    "transfer": [
+      "Explain a race between two simultaneous reservations.",
+      "Describe a database condition that prevents overselling."
+    ]
+  },
+  {
+    "id": "project-cart-pricing",
+    "outcome": "Combine exact integer units, validation and an explicit per-order discount.",
+    "prerequisites": [
+      "project-stock-reservation"
+    ],
+    "vocabulary": [
+      {
+        "term": "pure calculation",
+        "meaning": "Compute from inputs without external side effects."
+      },
+      {
+        "term": "unit",
+        "meaning": "The scale and meaning of a number, such as cents."
+      },
+      {
+        "term": "line item",
+        "meaning": "A price-and-quantity record within an order."
+      }
+    ],
+    "example": "def line_total(price_cents, quantity):\n    return price_cents * quantity\n\n\nprint(line_total(1250, 3))\nassert line_total(1250, 0) == 0\n",
+    "explanation": [
+      "A price contract must define units. Here all amounts are integer cents, quantities are positive integers, and the discount applies once to the subtotal. The total never becomes negative.",
+      "Validate every line before producing a result. An empty cart has subtotal zero. A boolean is not a valid quantity even though Python allows arithmetic with True and False.",
+      "Keep this calculation pure so it can be tested independently from checkout, payment and inventory. This exercise does not model taxes, currency conversion or jurisdiction-specific rounding."
+    ],
+    "prediction": {
+      "question": "What is 1250 cents times 3?",
+      "choices": [
+        "3750 cents",
+        "37.5 cents",
+        "1253 cents"
+      ],
+      "correct": 0,
+      "explanation": "Multiplication preserves the explicit cents unit."
+    },
+    "practice": {
+      "task": "Return max(0, subtotal - discount). Negative inputs raise ValueError.",
+      "starter": "def discounted(subtotal, discount):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def discounted(subtotal, discount):\n    if subtotal < 0 or discount < 0:\n        raise ValueError(\"amounts must be nonnegative\")\n    return max(0, subtotal - discount)\n",
+      "alternative": "def discounted(subtotal, discount):\n    if min(subtotal, discount) < 0:\n        raise ValueError(\"negative amount\")\n    return subtotal - min(subtotal, discount)\n",
+      "negative": "def discounted(subtotal, discount):\n    return subtotal - discount\n",
+      "checks": "assert s.discounted(100, 30) == 70, \"Apply discount\"\nassert s.discounted(10, 20) == 0, \"Clamp total\"\nassert raises(ValueError, s.discounted, -1, 0), \"Validate inputs\"\n",
+      "runtime": "",
+      "hint": "Validate units and exact types, sum line totals, then clamp the discounted total.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.discounted(100, 30))\n"
+    },
+    "transfer": [
+      "Add a currency field and prevent mixing currencies.",
+      "Explain why payment success must not be inferred from a correct price calculation."
+    ]
+  },
+  {
+    "id": "project-idempotent-handler",
+    "outcome": "Cache a completed result and reject reuse of a key for a different request.",
+    "prerequisites": [
+      "project-cart-pricing"
+    ],
+    "vocabulary": [
+      {
+        "term": "idempotency key",
+        "meaning": "An identifier used to recognize retries of the same operation."
+      },
+      {
+        "term": "fingerprint",
+        "meaning": "A representation identifying the relevant request content."
+      },
+      {
+        "term": "conflict",
+        "meaning": "A reused key paired with a different request."
+      }
+    ],
+    "example": "def once(cache, key, operation):\n    if key not in cache:\n        cache[key] = operation()\n    return cache[key]\n\n\ncache = {}\nprint(once(cache, \"r1\", lambda: 42))\nassert once(cache, \"r1\", lambda: 99) == 42\n",
+    "explanation": [
+      "An idempotency key lets a caller retry the same operation without repeating its successful side effect. A response cache should retain both a request fingerprint and the completed result.",
+      "A matching key with a different payload is a conflict, not a cache hit. If the operation raises, do not store a success entry; a later retry must still have a chance to run.",
+      "This in-memory exercise handles sequential calls only. A production handler must atomically claim a key and coordinate concurrent requests, expiry, durable results and crash recovery. It does not create exactly-once delivery by itself."
+    ],
+    "prediction": {
+      "question": "Why does the second once call still return 42?",
+      "choices": [
+        "The lambda is ignored by Python",
+        "The key already has a cached result",
+        "99 is converted to 42"
+      ],
+      "correct": 1,
+      "explanation": "A cache hit returns the previous result without invoking the new operation."
+    },
+    "practice": {
+      "task": "Compute once per missing key and cache the result, including zero or None. Existing entries must not recompute.",
+      "starter": "def cached(cache, key, compute):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def cached(cache, key, compute):\n    if key not in cache:\n        cache[key] = compute()\n    return cache[key]\n",
+      "alternative": "def cached(cache, key, compute):\n    if key in cache:\n        return cache[key]\n    value = compute()\n    cache[key] = value\n    return value\n",
+      "negative": "def cached(cache, key, compute):\n    return cache.get(key) or compute()\n",
+      "checks": "assert cache_case(s.cached), \"Cache falsy values and avoid duplicate computation\"\n",
+      "runtime": "",
+      "hint": "Check key membership, compare payloads, then store only after operation returns.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\ncache = {}\nprint(answer.cached(cache, \"one\", lambda: 0))\nprint(answer.cached(cache, \"one\", lambda: 99))\n"
+    },
+    "transfer": [
+      "Describe a crash after delivery but before recording success.",
+      "Design a durable concurrent claim for the same key."
+    ]
+  },
+  {
+    "id": "project-retry-policy",
+    "outcome": "Make attempts, retryable errors and backoff visible through injected collaborators.",
+    "prerequisites": [
+      "project-idempotent-handler"
+    ],
+    "vocabulary": [
+      {
+        "term": "transient failure",
+        "meaning": "A failure that may disappear without changing the request."
+      },
+      {
+        "term": "backoff",
+        "meaning": "A delay between repeated attempts."
+      },
+      {
+        "term": "retry budget",
+        "meaning": "A bound on how much work retries may perform."
+      }
+    ],
+    "example": "def attempt(operation):\n    try:\n        return operation()\n    except TimeoutError:\n        return \"retry later\"\n\n\nprint(attempt(lambda: \"ok\"))\n",
+    "explanation": [
+      "A retry policy should identify which failures are transient and safe to repeat. Retrying every exception can amplify bugs or duplicate a non-idempotent side effect.",
+      "max_attempts includes the initial call. Backoff happens only between failed attempts, never after the last one. Injecting sleep makes timing testable without real delays.",
+      "Exponential backoff with jitter, cancellation and a total deadline are useful production additions. This exercise deliberately uses deterministic delays 1, 2, 4 and retries only TimeoutError."
+    ],
+    "prediction": {
+      "question": "What happens on an immediate successful operation?",
+      "choices": [
+        "No retries or delay",
+        "Always sleeps once",
+        "Runs twice"
+      ],
+      "correct": 0,
+      "explanation": "The first returned result leaves the function before the exception branch."
+    },
+    "practice": {
+      "task": "Try operation once and retry once only after TimeoutError. Propagate other failures and a second timeout.",
+      "starter": "def try_twice(operation):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def try_twice(operation):\n    try:\n        return operation()\n    except TimeoutError:\n        return operation()\n",
+      "alternative": "def try_twice(operation):\n    for attempt in range(2):\n        try:\n            return operation()\n        except TimeoutError:\n            if attempt == 1:\n                raise\n",
+      "negative": "def try_twice(operation):\n    try:\n        return operation()\n    except Exception:\n        return operation()\n",
+      "checks": "assert twice_case(s.try_twice), \"Only a timeout permits the second attempt\"\n",
+      "runtime": "",
+      "hint": "Count total attempts explicitly and sleep only when another retry remains.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\ncalls = []\ndef operation():\n    calls.append(1)\n    if len(calls) == 1:\n        raise TimeoutError(\"try again\")\n    return \"ok\"\nprint(answer.try_twice(operation))\n"
+    },
+    "transfer": [
+      "Add a maximum total delay without making real calls.",
+      "Explain why idempotency and retries must be designed together."
+    ]
+  },
+  {
+    "id": "project-import-pipeline",
+    "outcome": "Compose CSV parsing, row validation and deterministic summaries while reporting invalid rows.",
+    "prerequisites": [
+      "project-retry-policy"
+    ],
+    "vocabulary": [
+      {
+        "term": "pipeline",
+        "meaning": "A sequence of transformations with explicit boundaries."
+      },
+      {
+        "term": "rejected row",
+        "meaning": "A record excluded because it violates a documented rule."
+      },
+      {
+        "term": "reconciliation",
+        "meaning": "Account for input records through accepted and rejected outcomes."
+      }
+    ],
+    "example": "import csv\nimport io\n\nrows = list(csv.DictReader(io.StringIO(\"team,points\\na,2\\na,3\\n\")))\nprint(sum(int(row[\"points\"]) for row in rows))\nassert len(rows) == 2\n",
+    "explanation": [
+      "An import pipeline has several boundaries: bytes become text, text becomes rows, rows become validated domain values, and values become a summary. Each step can fail for a different reason.",
+      "This project requires team and points headers. A row with blank team, invalid integer points, or negative points is rejected. Good rows still contribute. The result reports accepted and rejected counts rather than hiding data loss.",
+      "Normalize team whitespace, aggregate exact integer points and sort the summary by team name. Keep parsing and policy independently understandable. The exercise is a local batch; large production imports also need streaming limits, idempotency and operational evidence."
+    ],
+    "prediction": {
+      "question": "What does the worked example print?",
+      "choices": [
+        "2",
+        "23",
+        "5"
+      ],
+      "correct": 2,
+      "explanation": "Each points field is parsed as an integer before summation."
+    },
+    "practice": {
+      "task": "Parse integer strings, sum valid values and count malformed entries. Return total and rejected; negative integers are valid.",
+      "starter": "def sum_valid(texts):\n    # TODO: replace this placeholder with your implementation.\n    return None\n",
+      "solution": "def sum_valid(texts):\n    total = 0\n    rejected = 0\n    for text in texts:\n        try:\n            total += int(text)\n        except ValueError:\n            rejected += 1\n    return {\"total\": total, \"rejected\": rejected}\n",
+      "alternative": "def sum_valid(texts):\n    values = []\n    rejected = 0\n    for text in texts:\n        try:\n            values.append(int(text))\n        except ValueError:\n            rejected += 1\n    return dict(total=sum(values), rejected=rejected)\n",
+      "negative": "def sum_valid(texts):\n    return {\"total\": sum(map(int, texts)), \"rejected\": 0}\n",
+      "checks": "assert s.sum_valid([\"2\", \"bad\", \"-1\"]) == {\"total\": 1, \"rejected\": 1}, (\n    \"Aggregate and account for bad input\"\n)\nassert s.sum_valid([]) == {\"total\": 0, \"rejected\": 0}, \"Empty batch\"\nassert s.sum_valid([\"0\", \" 4 \", \"2.5\"]) == {\"total\": 4, \"rejected\": 1}, (\n    \"Whitespace and invalid decimal\"\n)\n",
+      "runtime": "",
+      "hint": "Use DictReader, validate headers once, then handle row failures without losing the accepted-row count.",
+      "playground": "import answer\n\n# Run your implementation, then change these inputs and predict the result.\nprint(answer.sum_valid(['2', 'bad', '-1']))\n"
+    },
+    "transfer": [
+      "Reconcile accepted + rejected against the number of parsed data rows.",
+      "Explain where to add size limits, durable job status and a rejected-row download in a production importer."
+    ]
+  }
+]

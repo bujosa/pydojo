@@ -1,0 +1,4 @@
+assets/licenses/** -text whitespace=-trailing-space
+assets/fonts/OFL-*.txt -text whitespace=-trailing-space
+# Preserve upstream reStructuredText headings verbatim; they are not merge markers.
+assets/licenses/python-build-standalone-python-licenses.rst conflict-marker-size=32

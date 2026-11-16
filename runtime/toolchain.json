@@ -1,0 +1,12 @@
+{
+  "python": {
+    "version": "3.13.18",
+    "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261110/cpython-3.13.18%2B20261110-aarch64-apple-darwin-install_only_stripped.tar.gz",
+    "sha256": "7a2384641584ab9984221fcb0fc9265df465922af71be71410529e2a9c3f0540"
+  },
+  "ruff": {
+    "version": "0.12.5",
+    "url": "https://github.com/astral-sh/ruff/releases/download/0.12.5/ruff-aarch64-apple-darwin.tar.gz",
+    "sha256": "8819b61cff645c1d1671df331bb57c1ab230094b686942bccedde1f888feb522"
+  }
+}
