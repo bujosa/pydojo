@@ -1,0 +1,10 @@
+name: Improvement
+description: Suggest a concrete learning or product improvement.
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What should a learner be able to do?
+      description: Explain the current obstacle and a concrete example of the proposed result.
+    validations:
+      required: true

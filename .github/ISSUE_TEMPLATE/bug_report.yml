@@ -1,0 +1,15 @@
+name: Bug report
+description: Report a reproducible learning or runtime problem.
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: What happened and how can we reproduce it?
+      description: Include the lesson, expected behavior, app version and macOS version. Use fictional inputs; remove private data.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: A small code sample or redacted screenshot is helpful.
