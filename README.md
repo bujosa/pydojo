@@ -3,6 +3,7 @@
 A native Python learning workspace in the Keiko family. Read an explained example, predict the result, practice with guidance, and solve a separate lab with real Python checks.
 
 - **43 lessons, 43 guided practices, seven chapters:** first values, control flow, collection patterns, reliable data, domain modeling, advanced Python, and six engineering projects.
+- Original lesson-specific illustrations, with a different conceptual scene for each of the 43 lessons and an accessible native caption.
 - Syntax-colored editor, line numbers, find, Undo/Redo, command palette and a focused workbench.
 - Real CPython Run and Debug: console logs, breakpoints, step into/over/out, call stacks and read-only variable inspection.
 - **Format** with pinned Ruff. Background formatting preserves newer edits; line breakpoints are cleared explicitly after formatting.

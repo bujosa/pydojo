@@ -8,6 +8,7 @@ COMMANDS = [
     ["cargo", "fmt", "--check"],
     ["cargo", "clippy", "--all-targets", "--", "-D", "warnings"],
     ["cargo", "test", "--locked"],
+    ["cargo", "run", "--locked", "--", "--verify-art"],
     ["cargo", "run", "--locked", "--", "--verify-content"],
     ["cargo", "run", "--locked", "--", "--verify-learning"],
     [

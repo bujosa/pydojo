@@ -1,0 +1,393 @@
+{
+  "generator": "built-in image_gen",
+  "direction": "Tactile educational dioramas: ivory ceramic, jade glass, brass and amber, isometric, transparent.",
+  "images": [
+    {
+      "id": "names-and-values",
+      "file": "names-and-values-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Lesson: names and values. Create an exquisite handcrafted miniature diorama: three separate small open ceramic containers, one holding a warm amber sphere (a number), one holding a ribbon folded into a clean loop (text), and one holding a small mint toggle switch (boolean); blank brass label tabs attached to the containers suggest names bound to values. Visually explain different kinds of data without words. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brass details; mint, deep forest, warm ivory, restrained amber. Elevated isometric three-quarter view, soft cinematic studio light, precise architectural composition, beautiful contemporary editorial illustration, not cartoon clipart. A single coherent scene with a wide low silhouette, all three objects fully visible with generous breathing room; transparent background. No text, lettering, logos, snakes, symbols, interface, border or watermark. This artwork must remain readable in a 300 by 140 point lesson masthead.",
+      "caption": "Names refer to values",
+      "sha256": "b23480752f78dc567c1cece857a4130757b2dba92c0bac006bc5e52ef8d190e9",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "numbers-and-operators",
+      "file": "numbers-and-operators-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: An elegant miniature mechanical calculator sculpture: several amber counting beads travel along two brass rails into a ceramic arithmetic chamber, emerging as a neatly grouped stack. Convey combining quantities and exact arithmetic; no symbols or digits. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Combine quantities deliberately",
+      "sha256": "9545098ed7a9452fc61ecc106bed3be45e1bac82fdb124c580456b7348dd6155",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "strings-and-text",
+      "file": "strings-and-text-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A long ivory fabric ribbon passes through two jade guide rollers, straightening loose tangled ends into one clean folded strip; small ceramic letterpress tiles with abstract embossed grooves are arranged as a string of characters, with no actual lettering. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Normalize, then compose text",
+      "sha256": "15ed6de8dadbfaa668c3374ce70929c65639b7e72170da9993631d9f50e9fa3b",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "booleans-and-comparisons",
+      "file": "booleans-and-comparisons-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Two beautiful mint-and-amber mechanical toggle switches linked to a small two-path gate: one path opens and the other remains blocked. Convey true-or-false decisions and comparing two choices, with no labels. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Two outcomes, one clear condition",
+      "sha256": "9078836bbb5f19ed01ee3267cea462beaaa6ac50428a20b2255f6072ce546bd2",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "lists-and-indexes",
+      "file": "lists-and-indexes-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: An ordered horizontal row of five individual jade-glass compartments on an ivory track, each holding one differently shaped amber or ivory object. A small brass pointer selects the first compartment. Ordered collection, each item has a position. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Order gives each item a position",
+      "sha256": "cc2892e212ba1a2cb34efd868846540b1f35cf3f2bee45677d4a152a33e2ca02",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "dictionaries-and-keys",
+      "file": "dictionaries-and-keys-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Three ivory cabinet drawers each with a different shaped brass keyhole; matching keys rest beside their matching jade and amber contents. Show direct key-to-value matching, not a random treasure chest. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Keys lead directly to values",
+      "sha256": "3d2593386338a9d6ea227cf637050916346af2d6e0b8fd128d6bfef4777a22c3",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "functions-and-return",
+      "file": "functions-and-return-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A refined small ceramic machine with one input chute on the left and one output tray on the right: a pair of small amber spheres enters, a single joined jade geometric shape exits. Reusable transformation with inputs and returned output. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Inputs become returned results",
+      "sha256": "4e4ed6501073064b4a23a49ae35bc00413b95d3e575da7b9f10dcf2d13de2845",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "branches-and-boundaries",
+      "file": "branches-and-boundaries-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A miniature ivory path reaches one elegant fork around a raised jade decision stone; a brass gate selects one branch while the second branch remains visible. Clear if/else branching, not a maze. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "One decision chooses a path",
+      "sha256": "6681855312f38fe205cc8cc36d1b1d7da93caf005724a238952d2f20b96871e2",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "loops-and-accumulators",
+      "file": "loops-and-accumulators-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A small circular brass conveyor repeatedly carries amber beads past a jade gate into a ceramic collection bowl. The bowl visibly accumulates several beads. Iteration and an accumulating result. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Repeat a step; build a result",
+      "sha256": "920705bbf5bf783b24f6f56b846a62cb5d1ae2b17ec2a73bce603f5d9440165b",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "comprehensions",
+      "file": "comprehensions-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: An ivory input tray contains mixed rough dark and polished amber pebbles; a fine jade sieve selects the amber pebbles and a small roller turns them into equally shaped jade cubes in an orderly output row. Filtering and transformation. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Filter first, then transform",
+      "sha256": "516571a56894b4bb455d9949c85f2b1a02eeabdd9501b6b3b4993be01b1b7542",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "sets-and-membership",
+      "file": "sets-and-membership-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A jade sorting ring surrounds three distinct geometric objects while duplicate amber spheres remain outside the ring. One representative of each shape is kept inside. Uniqueness and membership, uncluttered composition. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Keep only unique members",
+      "sha256": "7423244a12332f6a6d39d1fdbfff0234c9bfa8a6bdb295659a7dcab0bc02ce5e",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "unpacking-and-enumerate",
+      "file": "unpacking-and-enumerate-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Three small paired ceramic cases open to reveal one amber object and one matching brass position marker in each; two open cases separate their pair into neighboring trays. Pair unpacking and ordered positions without numerals. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Give each position a clear meaning",
+      "sha256": "1323968883e6e2221c0619a0ed83c1c4dbdea1f316e52a698eebf36528e0008e",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "defaults-without-aliasing",
+      "file": "defaults-without-aliasing-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Two separate ivory serving trays receive independent fresh mint bowls from a stack; an amber bead is added to one bowl while the other stays untouched. Independent defaults and avoiding shared mutable containers. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "New calls, independent containers",
+      "sha256": "a5611aa6fa67bf52e56249f693159437f29a48e4b74ba5b8dd5a1a9863c66796",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "keyword-only-apis",
+      "file": "keyword-only-apis-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: An elegant jade control panel with three clearly different shaped sockets and three corresponding ivory plug pieces, each with a blank brass label plate. Options must go into their named matching socket; no text or lettering. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Name the options at the call site",
+      "sha256": "f27ea50e45073d2a6b6e8e90a35e2ed7ce037622777d18d400f88ad344fae70c",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "missing-is-not-falsy",
+      "file": "missing-is-not-falsy-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Four ivory cubbies: three hold a small amber zero-like ring, a closed mint switch, and an empty folded ribbon; the fourth truly vacant cubby is filled by a replacement jade cube. Distinguish present empty-looking values from absence. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Missing is different from empty",
+      "sha256": "f9fe8a37b8dd69bbb1ec9e1344e50494bd830e87df7eeb33446eed9495866568",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "grouping-records",
+      "file": "grouping-records-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A gently branching brass sorting channel separates several small jade and amber objects into three neat ivory bowls, grouping matching shapes together. Every bowl visibly contains multiple related records. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Related records share a bucket",
+      "sha256": "83ca5806c7135da4a2b81c5590dc9e6ff12e9cc058247e6c5958d260390b56f7",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "sorting-with-keys",
+      "file": "sorting-with-keys-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A row of six beautiful jade and amber geometric towers arranged from tall to short on an ivory shelf, with equal-height towers ordered by a secondary brass marker. Deliberate ordered view and stable sorting. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Order by the fields that matter",
+      "sha256": "2d7e28ae6338ebb87c55da40d334141cb9501d33ff3b931538dd9278ec6c51dc",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "generators-and-laziness",
+      "file": "generators-and-laziness-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A small ceramic dispenser releases exactly one polished amber bead onto a jade receiving spoon while the remaining beads stay inside a translucent jade chamber. Values produced one at a time on demand. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "One value, only when requested",
+      "sha256": "79d056769a14fb1a18b57a75270be86d6388159d5d55808584e6b0383ae873b9",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "exceptions-and-validation",
+      "file": "exceptions-and-validation-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A precise brass inspection gate on an ivory platform: a smooth jade piece passes through while a mismatched amber piece is gently caught by a distinct side guard. Validation and explicit failure, no warning text. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Reject invalid work explicitly",
+      "sha256": "71b80f8cca4167db34b7701f7b248e02c23b0d0dd0670bcdb63742f92d04e8dc",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "parsing-with-fallbacks",
+      "file": "parsing-with-fallbacks-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A small jade funnel accepts textured ivory strips and turns a valid strip into an amber counting bead; an irregular strip is redirected into a separate quiet ceramic tray holding a single neutral fallback stone. Parsing with a controlled fallback. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Convert first; handle failure",
+      "sha256": "c31b69e2b5cc4dad193c78f8eb88debfb226b947c86dc585e2735d56ae5f75ba",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "json-at-the-boundary",
+      "file": "json-at-the-boundary-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A translucent jade outer shell opens to reveal a carefully nested set of ivory compartments, each holding one matching amber or jade shape. A brass caliper checks the outer shape before it enters a neat output tray. Structured data and schema validation. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Decoded data still needs validation",
+      "sha256": "82ed11b092a5b37adc9932e3ec83c5f6aa87fb77c7adfc8fd7e5f70b556b6afe",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "csv-with-a-parser",
+      "file": "csv-with-a-parser-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: An elegant small ivory tabular sheet made from three rows and three jade-glass columns; a narrow ribbon with a curved comma-like bend stays enclosed inside a single cell while brass guide rails separate the actual columns. CSV records and quoted fields without any text. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Quoted fields stay together",
+      "sha256": "8f1738bb01340df59a584715810f55fe920187b6f8c9ec68ea9e285b3fb037ec",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "files-and-contexts",
+      "file": "files-and-contexts-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A beautiful ivory archive folder with a jade cover opens under a brass hinge, transfers one folded ribbon into a receiving tray, and is shown closing securely. A small clasp signifies a cleanly finished resource lifetime. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Acquire, use, always close",
+      "sha256": "227edf03f5732a71d43d6e537b77d0dbe270c2fe9e9ebd1a6571bf811ee573fa",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "decimal-money",
+      "file": "decimal-money-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A miniature precision balance and ivory measuring tray hold neatly counted brass coins and amber decimal-like beads; a jade calibration weight establishes exact precision. Financial arithmetic and explicit rounding without digits or currency logos. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Exact units, explicit rounding",
+      "sha256": "b250d76c7cc127ad09d79cd1a2ee7582e1b7ea5537f72345f38dfe3687e981ad",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "dates-with-timezones",
+      "file": "dates-with-timezones-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Two exquisite jade-and-ivory clock faces without numbers show different local hand positions, joined by a thin brass arc to one central amber sun. The same instant represented at different timezone offsets. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Different offsets, the same instant",
+      "sha256": "b74a530b5c753e02710d69bec827bf34c421bef40d8a368eb9b6f78648bc2e71",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "classes-and-state",
+      "file": "classes-and-state-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Two independent miniature jade mechanisms built from the same ivory mold, each with its own amber bead counter at a different position. Shared class blueprint, independent instance state. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "One blueprint, independent state",
+      "sha256": "ecfe3ac0ed7e1dc7ad221dffebd589f42353a22d2728875813b6744bdfce31b7",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "dataclasses-and-values",
+      "file": "dataclasses-and-values-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Two identical ivory record cards sculpted as solid ceramic plaques, each containing the same three inset jade and amber geometric fields, joined by a small brass clasp. Immutable value records and equality by contents. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Equal fields, equal values",
+      "sha256": "293ba9d1a1f2e376d38eaea6983ef9a8ac72ec510537f89d51bf44777dc08a0d",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "explicit-state-transitions",
+      "file": "explicit-state-transitions-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Three ivory stations connected by a directed brass rail, with an amber token moving from the first to a mint middle station and then to a sealed terminal station. One invalid shortcut is blocked by a small closed gate. Finite state transitions. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Only valid transitions move forward",
+      "sha256": "a0de36cf743c406fbfa617e5fd17cdda61b18c43cbecbbe4e76169947146dc67",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "properties-and-invariants",
+      "file": "properties-and-invariants-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A jade vault on an ivory foundation holds carefully stacked brass coins. A controlled small withdrawal drawer allows one coin out while a clear brass guard prevents removing more than the stored amount. Protected internal state and domain invariants. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Guard each change to state",
+      "sha256": "f18db21db9a54491ac53df00752de7817c0fed875e2f78fdacb738e63422a93c",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "inject-dependencies",
+      "file": "inject-dependencies-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A refined ivory central machine connects through one visible brass port to either of two interchangeable jade delivery modules. Show one module connected and the other resting nearby. Policy separated from interchangeable collaborators. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Keep policy separate from delivery",
+      "sha256": "efed62628489e738adac63997587255ce4f5853e37e91ba28edf08e4066e55a7",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "copying-nested-data",
+      "file": "copying-nested-data-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Two open ivory trays hold matching nested jade bowls; each bowl contains its own amber bead. One copied nested bowl receives an extra bead while the original stays unchanged. Independent deep structure rather than connected shared contents. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Copy the structure you own",
+      "sha256": "646eb395e5cd318c85fab30a005ebafdd25545eea026e07d4a6e41df11fb37ca",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "closures-and-state",
+      "file": "closures-and-state-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A small transparent jade dome encloses one amber dial and a nested ivory mechanism; a brass handle reaches from the inner mechanism outside the dome while the enclosed dial remains retained. A returned function retaining a local environment. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "A function can retain its environment",
+      "sha256": "aa8f1222af8571b393a4d49e3b6ed21f980483a6da4ec4c13cefa595f146e9a8",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "decorators-and-metadata",
+      "file": "decorators-and-metadata-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A simple jade mechanism is wrapped by an elegant ivory outer sleeve that adds a small brass logging bell; its original blank brass identity tag remains visible through a precise cutout. Wrapping behavior while preserving metadata. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Wrap behavior; preserve metadata",
+      "sha256": "61e739521be90fe11e064a3e80fedc3b0cca73e76a9e69312aac2a09870c186d",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "custom-context-managers",
+      "file": "custom-context-managers-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: An ivory resource case has an opening jade lid, a centered amber tool used inside, and a precise self-closing brass hinge and clasp. The scene conveys acquire, use, and guaranteed cleanup in one clear composition. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Cleanup runs on every exit",
+      "sha256": "72066e88b99e310f6ecbafaad41e1f9be279241a50eaaa55d090b7ea0f806f8d",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "iterator-protocol",
+      "file": "iterator-protocol-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A short ivory stepping track contains four amber beads; a jade cursor advances to the next position while an empty final brass stop marks exhaustion. One-by-one traversal and a definite end, not an infinite loop. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Advance until there are no more values",
+      "sha256": "7eb45b33bd673a3579d47f6c57273e278953032e0b8d308f0eafb7041b239030",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "async-and-await",
+      "file": "async-and-await-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Three elegant independent jade and ivory lanes carry amber beads concurrently toward three ordered receiving bowls. Thin brass bridges cross the lanes while preserving each lane identity. Cooperative concurrent progress and gathered results in original order. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Concurrent work, ordered results",
+      "sha256": "3c2ffd44b5e34b6ba50250b55dbd3a6efc84e0a6e5bfc4974b13bbcc5dff26cf",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "type-hints-and-contracts",
+      "file": "type-hints-and-contracts-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: An ivory blueprint card outlines a geometric jade shape, but a separate real brass measuring gauge checks a solid amber object before accepting it. Intended shape versus actual runtime validation, no text or symbols. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Describe intent; validate actual input",
+      "sha256": "6ff007354cbaa90bc72cd21482af33ff0af771a08222f34b95270b833ed8a733",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "project-log-report",
+      "file": "project-log-report-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A miniature observation desk: several thin jade and ivory event ribbons flow into a ceramic report board where amber bars of different heights summarize their counts. Clear logs transformed into an operational report, no writing. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Many events become a useful report",
+      "sha256": "6e7e45c446c3e95efc40d464214fb3691bbe075ff8fa3b3c412dd7f5e636920a",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "project-stock-reservation",
+      "file": "project-stock-reservation-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A beautiful warehouse shelf of ivory cubbies holds countable jade product boxes; one coordinated brass reservation tray selects a complete group, while an insufficient group remains untouched behind a closed small gate. All-or-nothing stock reservation. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "A batch succeeds as a whole",
+      "sha256": "18b6d43636974eba169f232e4c91fa348b418fa53c577c16be0a1c2adc195cab",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "project-cart-pricing",
+      "file": "project-cart-pricing-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: An elegant small jade shopping basket contains two ivory geometric products; a brass precision balance and a single amber discount token sit beside one final orderly stack of coins. Exact cart pricing with one per-order discount, no currency marks. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Precise totals in integer cents",
+      "sha256": "c51695b5abc24583d4519a098fdf47ce7c1df1e44b2f61f985dee53e134af746",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "project-idempotent-handler",
+      "file": "project-idempotent-handler-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: Two identical amber request tokens approach one ivory-and-jade processing gate; a brass key-shaped cache slot recognizes the duplicate and routes both to the same single completed jade result. One effect despite repeated requests. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Repeated request, one recorded result",
+      "sha256": "c7ea460f5dc5e2acb2911c0f7c14c8d811658b2c2d3dd2807df505b5d821824d",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "project-retry-policy",
+      "file": "project-retry-policy-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A graceful ivory path makes three successive attempts through a jade gateway; brass stepping stones become farther apart between attempts, and the last gate is open with one amber success bead. Bounded retries with increasing backoff, not an endless spiral. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Try again within a clear limit",
+      "sha256": "1f6fef13324e9b10cade7bbc1ee59893ea265520e156603a4b53659bcd367d08",
+      "width": 1836,
+      "height": 857
+    },
+    {
+      "id": "project-import-pipeline",
+      "file": "project-import-pipeline-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one original lesson illustration for PyDojo, a premium native Python learning app. Create an exquisite handcrafted miniature educational diorama. Subject: A complete miniature data workshop: an ivory tabular input sheet feeds a jade inspection gate; valid amber records enter three neat grouped output bowls, while one invalid record moves into a separate small rejection tray. A refined brass conduit connects each stage. CSV import, validation, aggregation and honest rejection counts. Sophisticated tactile matte ceramic, ivory stone, translucent jade glass, tiny brushed brass details; mint, deep forest, warm ivory and restrained amber. Elevated isometric three-quarter view, soft cinematic studio lighting, precise architectural composition, contemporary editorial illustration, high craft and elegant materials, not cartoon clipart. A single coherent scene with a wide low silhouette; all important objects fully visible, generous breathing room, genuinely transparent background. Designed to be legible at 300 by 140 points. No text, letters, digits, logos, snakes, UI, border or watermark. Every prop must support the educational subject. Keep visual consistency across the collection.",
+      "caption": "Parse, validate, group, reconcile",
+      "sha256": "dbaa1280dea34e243fe4c51a11d9c62ea421e3be0b46a574d03b1de5818334ad",
+      "width": 1836,
+      "height": 857
+    }
+  ]
+}

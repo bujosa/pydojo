@@ -1,4 +1,5 @@
 #![cfg_attr(test, allow(clippy::unwrap_used))]
+mod art;
 mod commands;
 mod compiler;
 mod course;
@@ -38,6 +39,7 @@ struct FormatJob {
     result: Result<formatter::Formatted, String>,
 }
 struct App {
+    illustrations: art::Illustrations,
     reader: reader::Reader,
     guides: Vec<learning::Guide>,
     workbench: ide::Workbench,
@@ -83,6 +85,7 @@ impl App {
             .unwrap_or(0);
         let open_sections = std::iter::once(lessons[selected].section.clone()).collect();
         Self {
+            illustrations: art::Illustrations::default(),
             open_sections,
             focus: false,
             path_before_focus: true,
@@ -718,13 +721,15 @@ impl App {
                     });
                 });
             if self.stage == 0 {
+                let illustration = self.illustrations.get(&ctx, &base.id);
                 design::masthead(
                     ui,
                     &base.section,
                     &base.title,
                     self.selected,
-                    ui.available_width() < 760.0,
-                    false,
+                    illustration.as_ref(),
+                    art::caption(&base.id),
+                    self.illustrations.failed(&base.id),
                 );
                 ui.add_space(12.0);
                 if let Some(action) = self.reader.show(ui, &guide, &base, &self.lessons) {
@@ -985,6 +990,13 @@ fn main() -> eframe::Result {
             return Ok(());
         }
     };
+    if std::env::args().any(|a| a == "--verify-art") {
+        if let Err(error) = art::verify(&lessons) {
+            eprintln!("{error}");
+            std::process::exit(1);
+        }
+        return Ok(());
+    }
     let guides = match learning::load(&lessons) {
         Ok(guides) => guides,
         Err(error) => {
