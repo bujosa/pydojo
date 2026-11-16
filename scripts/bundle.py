@@ -43,6 +43,8 @@ for license_file in list(Path("assets/fonts").glob("OFL-*.txt")) + list(
 shutil.copy2("ATTRIBUTION.md", resources / "ATTRIBUTION.md")
 shutil.copytree("target/toolchain/python", resources / "python", symlinks=True)
 shutil.copytree("target/toolchain/ruff", resources / "ruff", symlinks=True)
+shutil.copytree("target/toolchain/completion", resources / "completion")
+shutil.copy2("runtime/completion-tools.json", resources / "completion-tools.json")
 shutil.copy2("runtime/toolchain.json", resources / "toolchain.json")
 shutil.copy2(binary, macos / "pydojo")
 info = dict(

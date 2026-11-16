@@ -8,9 +8,37 @@ import shutil
 import subprocess
 import tarfile
 import urllib.request
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+
+def completion_tools():
+    base = ROOT / "target/toolchain"
+    dest = base / "completion"
+    if dest.exists():
+        shutil.rmtree(dest)
+    dest.mkdir()
+    for name, spec in json.loads(
+        (ROOT / "runtime/completion-tools.json").read_text()
+    ).items():
+        archive = base / (name + ".whl")
+        if (
+            not archive.exists()
+            or hashlib.sha256(archive.read_bytes()).hexdigest() != spec["sha256"]
+        ):
+            with urllib.request.urlopen(spec["url"], timeout=60) as response:
+                data = response.read()
+            if hashlib.sha256(data).hexdigest() != spec["sha256"]:
+                raise SystemExit("Completion tool checksum mismatch: " + name)
+            archive.write_bytes(data)
+        with zipfile.ZipFile(archive) as wheel:
+            for item in wheel.infolist():
+                path = Path(item.filename)
+                if path.is_absolute() or ".." in path.parts:
+                    raise SystemExit("Invalid wheel path")
+                wheel.extract(item, dest)
 
 
 def main():
@@ -47,6 +75,7 @@ def main():
             staging.rmdir()
         executable = dest / ("bin/python3.13" if name == "python" else "ruff")
         subprocess.run([str(executable), "--version"], check=True)
+    completion_tools()
     print("Verified local toolchain ready in target/toolchain.")
 
 

@@ -14,9 +14,9 @@ The initial course goes from first syntax to advanced language features and boun
 
 ## Install
 
-Download **PyDojo-v0.1.3-macos-arm64.zip** from the [latest release](https://github.com/bujosa/pydojo/releases/latest), extract it and move PyDojo.app to `~/Applications`. The verified Keiko catalog integration is being released with Keiko 0.3.7.
+Download **PyDojo-v0.2.0-macos-arm64.zip** from the [latest release](https://github.com/bujosa/pydojo/releases/latest), extract it and move PyDojo.app to `~/Applications`. Keiko 0.3.7 or newer also installs, verifies and updates PyDojo.
 
-Python 3.13.18 and Ruff 0.12.5 are included. No terminal setup or account is needed. Initial platform: macOS Apple Silicon; the app is ad-hoc signed and not notarized. macOS may require first-launch approval in System Settings → Privacy & Security.
+Python 3.13.18, Ruff 0.12.5 and the pinned Jedi completion tools are included. No terminal setup or account is needed. Initial platform: macOS Apple Silicon; the app is ad-hoc signed and not notarized. macOS may require first-launch approval in System Settings → Privacy & Security.
 
 ## Build and run
 
@@ -49,3 +49,9 @@ Each execution uses a disposable scratch directory with time/output limits and e
 ## Contribute
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [content authoring](docs/content-authoring.md), and [architecture](docs/architecture.md). Original application/course code is MIT OR Apache-2.0. Fonts and bundled tools retain their upstream licenses; see [ATTRIBUTION.md](ATTRIBUTION.md).
+
+## Semantic suggestions
+
+Choose **Suggest** or press **Ctrl+Space** in the editor. Member access and typed identifiers also request suggestions automatically. Use Up/Down to choose, Tab/Enter to accept and Escape to close. Acceptance is one undoable edit. Jedi Script infers local values and the companion workspace file without running learner modules. Suggestions are offline and require no account or packages installed by the learner.
+
+The [editor assistance contract](docs/editor-assistance.md) describes snapshot protection, limits and tool provenance. The editor is a focused two-file learning workspace; completion does not add arbitrary package installation or a complete LSP environment.

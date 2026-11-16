@@ -40,7 +40,7 @@ impl Drop for Work {
         let _ = fs::remove_dir_all(&self.0);
     }
 }
-fn executable(variable: &str, relative: &str) -> Result<PathBuf, String> {
+pub fn resource(variable: &str, relative: &str) -> Result<PathBuf, String> {
     if let Some(path) = std::env::var_os(variable) {
         return Ok(path.into());
     }
@@ -49,7 +49,7 @@ fn executable(variable: &str, relative: &str) -> Result<PathBuf, String> {
         .parent()
         .and_then(Path::parent)
         .map(|p| p.join("Resources").join(relative));
-    if let Some(path) = bundle.filter(|p| p.is_file()) {
+    if let Some(path) = bundle.filter(|p| p.exists()) {
         return Ok(path);
     }
     #[cfg(debug_assertions)]
@@ -57,7 +57,7 @@ fn executable(variable: &str, relative: &str) -> Result<PathBuf, String> {
         let dev = Path::new(env!("CARGO_MANIFEST_DIR"))
             .join("target/toolchain")
             .join(relative);
-        if dev.is_file() {
+        if dev.exists() {
             return Ok(dev);
         }
     }
@@ -66,22 +66,28 @@ fn executable(variable: &str, relative: &str) -> Result<PathBuf, String> {
     ))
 }
 pub fn python(work: &Work, script: &str) -> Result<Command, String> {
-    let mut command = Command::new(executable("PYDOJO_PYTHON", "python/bin/python3.13")?);
+    python_at(&work.0, script)
+}
+pub fn python_at(root: &Path, script: &str) -> Result<Command, String> {
+    let mut command = Command::new(resource("PYDOJO_PYTHON", "python/bin/python3.13")?);
     command.args(["-I","-u","-B","-c","import runpy,sys; sys.path.insert(0, '.'); runpy.run_path(sys.argv[1], run_name='__main__')",script]);
-    isolate(&mut command, work);
+    isolate_at(&mut command, root);
     Ok(command)
 }
 pub fn ruff(work: &Work) -> Result<Command, String> {
-    let mut command = Command::new(executable("PYDOJO_RUFF", "ruff/ruff")?);
+    let mut command = Command::new(resource("PYDOJO_RUFF", "ruff/ruff")?);
     isolate(&mut command, work);
     Ok(command)
 }
 fn isolate(command: &mut Command, work: &Work) {
+    isolate_at(command, &work.0)
+}
+fn isolate_at(command: &mut Command, root: &Path) {
     command
-        .current_dir(&work.0)
+        .current_dir(root)
         .env_clear()
-        .env("HOME", &work.0)
-        .env("TMPDIR", &work.0)
+        .env("HOME", root)
+        .env("TMPDIR", root)
         .env("PATH", "/usr/bin:/bin")
         .env("LANG", "en_US.UTF-8");
 }

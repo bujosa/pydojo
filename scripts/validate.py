@@ -1,5 +1,7 @@
 """Required local gates. Never touches installed apps or learner data."""
 
+import os
+import tempfile
 import subprocess
 from pathlib import Path
 
@@ -8,6 +10,7 @@ COMMANDS = [
     ["cargo", "fmt", "--check"],
     ["cargo", "clippy", "--all-targets", "--", "-D", "warnings"],
     ["cargo", "test", "--locked"],
+    ["cargo", "run", "--locked", "--", "--verify-completion"],
     ["cargo", "run", "--locked", "--", "--verify-art"],
     ["cargo", "run", "--locked", "--", "--verify-content"],
     ["cargo", "run", "--locked", "--", "--verify-learning"],
@@ -36,5 +39,7 @@ COMMANDS = [
 ]
 for command in COMMANDS:
     print("Running:", " ".join(command), flush=True)
-    subprocess.run(command, cwd=ROOT, check=True)
+    env = os.environ.copy()
+    env["PYDOJO_HOME"] = tempfile.mkdtemp(prefix="dojo-validation-")
+    subprocess.run(command, env=env, cwd=ROOT, check=True)
 print("All local gates passed.")

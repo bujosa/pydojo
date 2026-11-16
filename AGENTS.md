@@ -13,3 +13,5 @@ Native Rust/egui Python learning app in Keiko. English UI and original English l
 - Required gates: cargo fmt --check; cargo clippy --all-targets -- -D warnings; cargo test; cargo run --locked -- --verify-art; cargo run --locked -- --verify-content; cargo run --locked -- --verify-learning; Python runtime unit tests; pinned Ruff formatting checks.
 - Bundle only verified, checksum-pinned runtime assets with licenses. No catalog installation entry before a verified signed release exists.
 - bujosa/ branches, Conventional Commits; no hosted CI. Preserve unrelated work.
+
+- `completion.rs` owns bounded static language queries; `suggest.rs` owns debouncing and exact-snapshot suggestions. Never evaluate learner code for completion or apply stale results. Accepting a completion must remain undoable.
