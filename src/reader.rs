@@ -31,10 +31,13 @@ impl Reader {
                     ui.vertical(|ui| {
                         ui.set_width(if roomy { width - 190.0 } else { width });
                         design::eyebrow(ui, "YOUR NEXT SKILL", design::ACCENT);
-                        ui.label(
-                            RichText::new(&guide.outcome)
-                                .size(15.0)
-                                .line_height(Some(22.0)),
+                        ui.add(
+                            egui::Label::new(
+                                RichText::new(&guide.outcome)
+                                    .size(15.0)
+                                    .line_height(Some(22.0)),
+                            )
+                            .wrap(),
                         );
                         ui.horizontal_wrapped(|ui| {
                             ui.label(

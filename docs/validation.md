@@ -41,3 +41,7 @@ Native artwork review covered 1280x860 and 820x700. Observed artwork changes for
 The public repository is https://github.com/bujosa/pydojo. PR #1 was merged after the required local gates and the secret scan passed. Release v0.1.2 is built from merged main and contains the signed ZIP and SHA256SUMS.txt. Keiko's anonymous live integration verifies the public download checksum, signature and bundle identity, repeated replacement, rejected invalid asset, uninstall, restore and retained test data in isolated folders. The four-test suite includes PyDojo, TypeDojo, PodDojo and launcher self-update; all four passed during the catalog rollout. No ordinary learner data was used.
 
 These checks do not add notarization, Intel support or an adversarial execution sandbox. Manual native review and automated behavioral checks retain the scopes documented above.
+
+## Compact reading correction · 0.1.3
+
+Explicit wrapping keeps long outcomes inside their text region so Start practice remains visible, and constrains long masthead titles to their text region. Native review at 820x700 confirmed a two-line Python outcome with its action visible and a working transition into guided practice. The full required validation script passed, followed by a signed bundle. Course contracts, artwork, runtime and progress schemas are unchanged. Public installation instructions point to the new patch release.
